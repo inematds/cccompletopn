@@ -36,5 +36,7 @@ Formato de destino: `formato-curso-v5` (INEMA, dark editorial, página única co
 10. Otimização e encerramento — 5:27:13–5:58:20
 
 ## Status
-Última atualização: Fase 0 e 0.1 concluídas e commitadas (`2301fd8`). Todos os 10 briefs em `content/briefs/`.
-Próximo passo: Fase 1 (shell v5) + Fase 2 (módulo 1 exemplar) — aguardando confirmação do usuário antes do fan-out dos módulos 2–10.
+- Fase 0 / 0.1: concluídas (`2301fd8`) — 10 briefs em `content/briefs/`.
+- Fase 1: concluída (`525f9e0`) — `fragments/00-shell.html` + `content/CONTRATO-FRAGMENTO.md` + `assets/aula.css` + `assets/curso.js` (patch de 2 linhas pra suportar 10 aulas, motor original suportava só 9).
+- Fase 2: concluída (`a424842`, `67327f3`) — `fragments/modulo-01.html`, exemplar dourado, verificado com agent-browser (zero erros de console, quiz/practice/rail interativos funcionando). 13/13 itens do manifesto de completude fechados.
+- **Aguardando confirmação do usuário para a Fase 3** (fan-out dos módulos 2–10, é a etapa mais cara em tokens).
