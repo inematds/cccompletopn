@@ -1,0 +1,248 @@
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 6</p>
+    <h1>Um chefe inteligente<br><em>e um time de trabalhadores baratos</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue explicar quando vale a pena delegar uma tarefa pra um sub-agente em vez de fazer tudo na conversa principal, criar um sub-agente simples com a ajuda do próprio Claude Code, e reconhecer quando NÃO usar um — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Sua conversa principal já ficou cheia de coisa que não devia estar ali — uma pesquisa longa, uma pilha de arquivo por arquivo — e você não sabia que existe um jeito de tirar esse peso sem perder o controle do resultado final.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <circle cx="150" cy="60" r="26" stroke="var(--accent)" stroke-width="3"/>
+    <circle cx="150" cy="52" r="9" stroke="var(--accent)" stroke-width="2.5"/>
+    <path d="M132 76 Q150 66 168 76" stroke="var(--accent)" stroke-width="2.5"/>
+    <rect x="30" y="150" width="52" height="40" rx="6" stroke="var(--ink-soft)" stroke-width="2.5"/>
+    <rect x="124" y="150" width="52" height="40" rx="6" stroke="var(--ink-soft)" stroke-width="2.5"/>
+    <rect x="218" y="150" width="52" height="40" rx="6" stroke="var(--ink-soft)" stroke-width="2.5"/>
+    <path d="M138 84 C 100 105, 70 122, 55 148" stroke="var(--line2)" stroke-width="2" stroke-dasharray="6 6"/>
+    <path d="M150 86 L150 148" stroke="var(--line2)" stroke-width="2" stroke-dasharray="6 6"/>
+    <path d="M162 84 C 200 105, 230 122, 245 148" stroke="var(--line2)" stroke-width="2" stroke-dasharray="6 6"/>
+    <path d="M60 150 C 90 120, 120 100, 138 88" stroke="var(--warm)" stroke-width="2" stroke-dasharray="3 5"/>
+    <path d="M150 148 L150 86" stroke="var(--warm)" stroke-width="2" stroke-dasharray="3 5" opacity=".55"/>
+    <path d="M240 150 C 210 120, 180 100, 162 88" stroke="var(--warm)" stroke-width="2" stroke-dasharray="3 5"/>
+    <line x1="10" y1="205" x2="290" y2="205" stroke="var(--line2)" stroke-width="1.5"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="fundamento">
+      <h2><span class="n">01</span> A sessão principal é a chefe — e ela pode delegar</h2>
+      <p>Até aqui, você conversou sempre com a mesma sessão — a mesma "pessoa" ouvindo tudo, do início ao fim. Existe uma forma diferente de trabalhar: a sessão principal vira uma espécie de chefe, que continua sendo a única a falar com você, mas que consegue delegar tarefas a um <span class="gterm" tabindex="0" data-def="Uma segunda instância de IA que a sessão principal aciona pra fazer uma tarefa específica, numa memória própria e separada da conversa principal, e que só devolve o resultado final pra quem chamou — nunca fala direto com você.">sub-agente</span> — que trabalha numa memória própria, separada, e só reporta de volta pra quem chamou, nunca direto pra você.</p>
+      <p>Um exemplo real: pedir cinco sub-agentes, cada um com uma persona diferente — um leitor iniciante completo, uma engenheira de software, um dono de negócio, uma editora — pra revisar os capítulos de um livro em paralelo, cada um enxergando o texto com uma lente distinta. Os cinco trabalham ao mesmo tempo, cada um na sua própria sessão isolada, e devolvem cinco pareceres diferentes pra a mesma chefe juntar.</p>
+      <p>Um contador autônomo pode pedir pra sessão principal delegar a revisão de quarenta notas fiscais em paralelo pra sub-agentes, enquanto ele segue conversando sobre outro assunto na conversa principal; uma dona de pequeno negócio pode delegar a comparação de preços de três fornecedores diferentes ao mesmo tempo, em vez de fazer uma consulta de cada vez.</p>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta">
+      <h2><span class="n">02</span> Built-in ou sob medida — como um sub-agente é feito</h2>
+      <p>Existem dois tipos: os de uso geral, prontos, sem nenhuma configuração — você só pede e a sessão principal aciona um automaticamente quando faz sentido; e os sob medida, criados por você, guardados como um arquivo próprio dentro de uma pasta especial do projeto. Esse arquivo tem uma estrutura fixa: no topo, um bloco de configuração — como uma ficha de identificação, com nome, o que faz, qual modelo usa, quais ferramentas pode ou não usar — e abaixo dele, em texto comum, as instruções de como se comportar.</p>
+      <p>A parte mais importante dessa ficha é a descrição: é ela que funciona como <span class="gterm" tabindex="0" data-def="A frase ou situação, escrita na ficha do sub-agente, que faz ele entrar em ação sozinho quando você pede algo parecido — sem você precisar chamar pelo nome.">gatilho de disparo</span> automático. Quanto mais precisa essa descrição, menos "chamados errados" acontecem — nem disparar quando não devia, nem deixar de disparar quando devia.</p>
+      <div class="qsteps">
+        <p class="qsk">Passo a passo</p>
+        <ol>
+          <li><b>Dê um nome</b> — algo que identifique a função dele.</li>
+          <li><b>Escreva a descrição</b> — a frase que serve de gatilho pra ele disparar sozinho.</li>
+          <li><b>Escolha as ferramentas</b> — só o que ele realmente precisa usar, nada a mais.</li>
+          <li><b>Escolha o modelo</b> — o mais simples e barato que resolve a tarefa.</li>
+          <li><b>Salve o arquivo</b> — e teste com um pedido real antes de confiar nele.</li>
+        </ol>
+      </div>
+      <p>Uma consultora freelancer pode criar um sub-agente permanente só pra revisar propostas antes de enviar, disparado sempre que ela disser algo como "revisa esta proposta"; um dono de pequeno negócio pode ter um sub-agente que confere preços antes de qualquer anúncio ser publicado.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta">
+      <h2><span class="n">03</span> Por que delegar vale a pena — três motivos</h2>
+      <p>Existem três razões práticas pra usar sub-agentes. A primeira é manter a conversa principal limpa: uma pesquisa extensa ou a leitura de dezenas de arquivos pode "sujar" a <span class="gterm" tabindex="0" data-def="O espaço de memória de uma conversa — quanto mais cheio de coisa irrelevante, mais fácil a IA perder o fio do que importava no começo.">janela de contexto</span> principal; delegada, ela acontece numa janela fresca, à parte, e só o resumo final volta pra você. A segunda é o custo: a conversa principal pode rodar num modelo mais caro e capaz, enquanto tarefas simples e repetitivas vão pra sub-agentes num modelo mais barato — um chefe inteligente com um time de trabalhadores baratos. A terceira é o paralelismo: vários sub-agentes trabalhando ao mesmo tempo, cada um na sua própria janela.</p>
+      <p>Um coordenador de RH que precisa passar por cinquenta currículos evita poluir a conversa principal sobre a vaga em aberto delegando essa leitura pra um sub-agente; uma professora que tem uma pilha de redações pra corrigir mantém o planejamento da próxima aula limpo, na conversa principal, delegando a correção pra outra janela.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta">
+      <h2><span class="n">04</span> Construindo o seu — o Plan Roaster e um erro comum</h2>
+      <p>Um exemplo real de construção: o "Plan Roaster", um sub-agente advogado do diabo, criado pra fazer críticas duras a um plano ou ideia antes de você seguir com ele. A ficha dele: descrição clara ("crítica adversarial de plano, dispara com frases como 'avalie meu plano' "), ferramentas limitadas só à leitura — ele não edita nada —, modelo simples e barato, já que a tarefa não exige um raciocínio caro, e uma cor própria, só pra identificar visualmente quando ele está ativo.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Esquecer de fechar uma aspas dentro do bloco de configuração do sub-agente.</b> Costuma acontecer porque essa ficha é editada à mão, num arquivo de texto simples, e um caractere esquecido quebra a leitura do arquivo inteiro — o sub-agente simplesmente não dispara. Pra evitar: depois de criar ou editar a ficha, peça pro próprio Claude Code revisar o arquivo antes de salvar, ou pergunte por que ele não disparou quando você esperava — na maioria das vezes, ele mesmo acha o erro.</p>
+      </div>
+      <p>Uma professora pode construir, do mesmo jeito, um sub-agente "revisor de plano de aula" que só lê e comenta, nunca edita o plano original; um contador autônomo pode montar um "conferidor de cálculo" que revisa números antes de fechar um relatório pro cliente.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="fundamento">
+      <h2><span class="n">05</span> Sub-agente não é a mesma coisa que skill</h2>
+      <p>Skills e sub-agentes são estruturalmente quase idênticos por baixo — os dois são um arquivo de texto com a mesma ficha de configuração no topo. A diferença real está em como rodam: um sub-agente roda numa janela de memória isolada e fresca, permite paralelismo de verdade, e pode usar um modelo diferente do da conversa principal; uma skill normalmente dispara dentro da própria conversa principal, sem essa separação. E eles se combinam — uma skill pode chamar um sub-agente, e um sub-agente pode usar uma skill.</p>
+      <p>A mesma lógica do CLAUDE.md vale aqui: um sub-agente guardado dentro da pasta de um projeto só existe naquele projeto; guardado na pasta pessoal, funciona em qualquer projeto na sua máquina. Existem coleções prontas de sub-agentes pra baixar da internet — mas, assim como qualquer arquivo de origem desconhecida, vale revisar antes de instalar: um arquivo malicioso pode esconder uma <span class="gterm" tabindex="0" data-def="Um truque escondido dentro de um arquivo ou texto que tenta enganar a IA a fazer algo que você não pediu, como se fosse uma instrução legítima.">injeção de instrução</span> disfarçada de ficha comum.</p>
+      <p>Um coordenador de RH guarda o sub-agente de triagem só dentro do projeto do time de recrutamento, pra não vazar pra outros times; uma consultora freelancer guarda o sub-agente de revisão de proposta na pasta pessoal, porque usa com qualquer cliente novo.</p>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="6" data-kind="fundamento">
+      <h2><span class="n">06</span> Quando vale delegar — e quando não vale</h2>
+      <p>Sinais de que vale a pena criar um sub-agente: você vai ler muitos arquivos ou gerar uma resposta longa que nunca vai reler de verdade; a tarefa se repete toda semana; o trabalho é independente e pode ser feito em paralelo; ou você quer um parecer sem viés, de alguém que "acorda" sem nenhum contexto prévio.</p>
+      <p>Sinais de que não vale: uma edição rápida e pontual; passos que dependem uns dos outros em sequência — isso é orquestração de vários agentes, não um sub-agente isolado, porque sub-agentes não conversam entre si, só reportam pra quem chamou; ou quando a tarefa precisaria do histórico completo da conversa, ou de te fazer uma pergunta no meio do caminho, porque sub-agentes não interagem direto com você.</p>
+      <p>Existe também um recurso mais avançado, pra tarefas realmente grandes: disparar vários sub-agentes automaticamente, em fases, escalando de poucos a dezenas ou até centenas numa única tarefa. Isso consome o seu limite de uso muito rápido — um teste real chegou a 210 sub-agentes numa única rodada — então vale usar com cautela, de olho no limite antes de deixar rodando sozinho.</p>
+      <p>Um consultor freelancer usa esses sinais pra decidir se revisa sozinho, na hora, um contrato pontual, ou se delega pra um sub-agente uma pilha de contratos parecidos; um coordenador de RH usa o mesmo raciocínio pra saber quando vale revisar um currículo na conversa principal e quando vale delegar a triagem de uma leva inteira.</p>
+      <div class="quiz" data-answer="b">
+        <p class="qk">Teste-se</p>
+        <p class="q">Você precisa revisar, em paralelo, os relatórios financeiros de 8 clientes diferentes — cada revisão é independente da outra. Isso pede...</p>
+        <button class="opt" data-k="a">uma edição rápida e pontual, direto na conversa principal</button>
+        <button class="opt" data-k="b" data-fb="Trabalho independente e paralelizável é exatamente o sinal pra delegar — um sub-agente por cliente, cada um numa janela própria, reportando o resultado final de volta.">um sub-agente por cliente, todos rodando em paralelo</button>
+        <button class="opt" data-k="c">um único sub-agente fazendo os 8 relatórios em sequência, um dependendo do anterior</button>
+        <p class="qfb"></p>
+      </div>
+      <div class="mobfig" data-mobfig="6"></div>
+      <button class="readbtn" data-read="s6">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="tarefa">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Peça pro Claude Code criar seu primeiro sub-agente</h3>
+      <p class="pgoal">Meta: ter um sub-agente simples e só de leitura, criado com a ajuda do próprio Claude Code, pronto pra usar numa tarefa real sua. ~10 min.</p>
+      <p class="psafe">Um sub-agente só de leitura não edita nem apaga nada — ele só lê e responde. Não gostou do resultado? Peça pro Claude Code apagar e criar de novo.</p>
+      <p>Abaixo está um pedido pronto — como uma ficha com espaços em branco. Você só preenche o que está marcado entre <b>&lt; &gt;</b> e cola na sua conversa.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Quero criar um sub-agente novo.
+- O que ele faz: &lt;ex.: revisar minhas propostas antes de eu enviar&gt;
+- Quando ele deve entrar em ação sozinho: &lt;ex.: quando eu disser "revisa esta proposta"&gt;
+- Ele só pode ler, nunca editar ou enviar nada: sim
+- Modelo: o mais simples e barato disponível
+
+Me ajude a criar esse sub-agente e explique cada parte da ficha antes de salvar.</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Cole o pedido acima na sua conversa, preenchendo os dois espaços com uma tarefa real sua.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Dê uma tarefa de teste pro sub-agente novo e confira se ele reportou de volta pra você, na conversa principal, sem editar nada.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de delegar sua primeira tarefa de verdade — e viu, na prática, a diferença entre pedir na hora e ter um trabalhador permanente pronto pra chamar.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> a chefe delega, os sub-agentes trabalham à parte e só reportam de volta pra ela"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="46" r="22" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="52" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--accent)">chefe</text>
+        <rect x="20" y="130" width="48" height="34" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <rect x="86" y="130" width="48" height="34" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <rect x="152" y="130" width="48" height="34" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <path d="M96 66 L48 128" stroke="var(--line2)" stroke-width="1.8" stroke-dasharray="5 5"/>
+        <path d="M110 68 L110 128" stroke="var(--line2)" stroke-width="1.8" stroke-dasharray="5 5"/>
+        <path d="M124 66 L172 128" stroke="var(--line2)" stroke-width="1.8" stroke-dasharray="5 5"/>
+        <path d="M52 130 L100 68" stroke="var(--warm)" stroke-width="1.8"/>
+        <path d="M110 128 L110 70" stroke="var(--warm)" stroke-width="1.8" opacity=".5"/>
+        <path d="M168 130 L120 68" stroke="var(--warm)" stroke-width="1.8"/>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> a ficha no topo (configuração) e as instruções abaixo — a estrutura de um sub-agente"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="34" y="20" width="152" height="150" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <rect x="44" y="30" width="132" height="46" rx="4" stroke="var(--accent)" stroke-width="2"/>
+        <text x="110" y="48" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">nome · descrição</text>
+        <text x="110" y="62" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">modelo · ferramentas</text>
+        <line x1="52" y1="92" x2="168" y2="92" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="52" y1="106" x2="168" y2="106" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="52" y1="120" x2="150" y2="120" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="52" y1="134" x2="168" y2="134" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="52" y1="148" x2="140" y2="148" stroke="var(--line2)" stroke-width="1.5"/>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> os três motivos pra delegar: contexto limpo, custo menor, trabalho em paralelo"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="20" y="30" width="52" height="40" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <line x1="28" y1="42" x2="64" y2="42" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="28" y1="50" x2="64" y2="50" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="28" y1="58" x2="50" y2="58" stroke="var(--line2)" stroke-width="1.5"/>
+        <text x="46" y="88" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">contexto</text>
+        <circle cx="110" cy="50" r="20" stroke="var(--warm)" stroke-width="2.5"/>
+        <text x="110" y="55" text-anchor="middle" font-family="var(--mono)" font-size="11" fill="var(--warm)">$</text>
+        <text x="110" y="88" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">custo</text>
+        <rect x="160" y="30" width="16" height="40" rx="3" stroke="var(--accent)" stroke-width="2"/>
+        <rect x="182" y="30" width="16" height="40" rx="3" stroke="var(--accent)" stroke-width="2"/>
+        <text x="182" y="88" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">paralelo</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> uma aspa sem fechar quebra a leitura da ficha inteira — erro mecânico, não de ideia"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="34" y="30" width="152" height="46" rx="4" stroke="var(--warm)" stroke-width="2.5"/>
+        <text x="110" y="48" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--warm)">description: "revisa...</text>
+        <text x="110" y="62" text-anchor="middle" font-family="var(--mono)" font-size="13" fill="var(--warm)">⚠</text>
+        <path d="M60 100 L160 100" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M110 100 L110 120" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M110 120 L102 112 M110 120 L118 112" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="34" y="126" width="152" height="46" rx="4" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="146" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--accent)">description: "revisa..."</text>
+        <text x="110" y="160" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="var(--accent)">✓</text>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> guardado no projeto, só existe ali; guardado na pasta pessoal, vale em qualquer projeto"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="20" y="40" width="70" height="54" rx="6" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <text x="55" y="105" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--muted)">projeto</text>
+        <circle cx="160" cy="66" r="42" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="160" y="120" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">pasta pessoal</text>
+        <rect x="140" y="50" width="16" height="16" rx="3" stroke="var(--accent)" stroke-width="1.8"/>
+        <rect x="164" y="50" width="16" height="16" rx="3" stroke="var(--accent)" stroke-width="1.8"/>
+        <rect x="152" y="72" width="16" height="16" rx="3" stroke="var(--accent)" stroke-width="1.8"/>
+      </svg></div>
+      <div class="fig" data-fig="6" data-cap="<b>Fig.</b> um caminho pergunta se delega; outro pergunta se não — os dois levam a respostas diferentes"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="30" r="16" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <text x="110" y="35" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">delega?</text>
+        <path d="M98 44 L50 90" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M122 44 L170 90" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="18" y="92" width="64" height="66" rx="6" stroke="var(--accent)" stroke-width="2.2"/>
+        <text x="50" y="112" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--accent)">repete</text>
+        <text x="50" y="128" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--accent)">paralelo</text>
+        <text x="50" y="144" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--accent)">sem viés</text>
+        <rect x="138" y="92" width="64" height="66" rx="6" stroke="var(--line2)" stroke-width="2.2"/>
+        <text x="170" y="112" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--muted)">pontual</text>
+        <text x="170" y="128" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--muted)">sequência</text>
+        <text x="170" y="144" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--muted)">pergunta</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Existem comunidades e coleções abertas de sub-agentes prontos pra usar como ponto de partida — sempre com uma revisão de segurança antes de instalar algo baixado.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Sub-agente é uma segunda instância de IA, numa memória própria e separada, que só responde pra quem chamou — nunca conversa com outro sub-agente.</li>
+    <li>Delegar vale a pena quando o trabalho é grande, repetitivo ou pode ser feito em paralelo; não vale quando é rápido, pontual, ou depende de passos em sequência.</li>
+    <li>Sub-agente e skill compartilham quase a mesma estrutura por baixo — a diferença real é o isolamento de memória, o paralelismo e a possibilidade de usar um modelo mais barato.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de criar e testar seu primeiro sub-agente — um trabalhador permanente que você pode chamar sempre que precisar.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: pense numa tarefa que se repete toda semana e que hoje te obriga a ler muita coisa — essa é a candidata natural pro seu segundo sub-agente.</p>
+  <p class="na-hook">No próximo módulo, você junta tudo o que já aprendeu pra construir e publicar um projeto de verdade, do seu computador pro mundo.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 6 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-6">
+[
+  {"front":"Por que a conversa principal costuma ficar mais confiável quando delega uma leitura extensa pra um sub-agente?","back":"Porque a leitura pesada acontece numa janela de memória separada e fresca — a conversa principal só recebe o resumo final, sem se encher de coisa irrelevante."},
+  {"front":"Você tem uma tarefa que depende de 4 passos em sequência, cada um usando o resultado do anterior. Isso pede sub-agentes isolados?","back":"Não — sub-agentes não conversam entre si, só reportam pra sessão principal. Passos dependentes em sequência pedem outro desenho, de orquestração entre vários agentes."},
+  {"front":"Skill e sub-agente têm quase a mesma ficha de configuração por baixo. Qual a diferença que realmente importa?","back":"Sub-agente roda numa janela de memória isolada e fresca, permite paralelismo de verdade, e pode usar um modelo diferente da conversa principal; skill normalmente dispara dentro da própria conversa."},
+  {"front":"Um sub-agente novo não disparou quando você esperava. Antes de reescrever tudo do zero, o que vale tentar primeiro?","back":"Pedir pro próprio Claude Code ler a ficha do sub-agente e explicar por que ele não disparou — muitas vezes a causa é um erro mecânico simples, como uma aspa sem fechar."}
+]
+</script>
+
+<!-- COMPLETUDE aula-6 | tipo=FERRAMENTA | steps=6
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [PENDENTE-SHELL] tempo  data-tempo fica no elemento view do shell (fora deste fragmento, não editado) — valor calculado = 21min (1945 palavras/200 + 10min prática + 0.5min por 1 pergunta de teste-se), reportar pra montagem central preencher __TEMPO__
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (6/6)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (6/6)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-6"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [N/A] teste-se-FUND     tipo=FERRAMENTA: item não se aplica, mesmo com o teste-se opcional presente (step 6, data-answer="b")
+-->

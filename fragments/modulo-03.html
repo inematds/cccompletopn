@@ -1,0 +1,233 @@
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 3</p>
+    <h1>O bilhete que a IA lê<br><em>antes de te atender</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue montar um CLAUDE.md básico com o contexto do seu próprio trabalho, saber quando usar a versão global e quando usar a versão só do projeto, e reconhecer se um agente de IA está com acesso a ferramentas demais pro que você pediu — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Você já entendeu que contexto muda tudo — mas ainda repete o mesmo parágrafo de apresentação toda vez que abre uma conversa nova. E quando alguém fala em "arquivo de configuração" ou "chave de API", uma parte sua trava, como se isso fosse coisa de gente de TI. Não é.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <rect x="110" y="70" width="80" height="56" rx="10" stroke="var(--accent)" stroke-width="2.5"/>
+    <text x="150" y="103" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--accent)">CLAUDE.md</text>
+    <path d="M110 90 C 60 90, 40 60, 30 40" stroke="var(--line2)" stroke-width="1.8" fill="none"/>
+    <path d="M110 100 C 50 110, 30 120, 20 130" stroke="var(--line2)" stroke-width="1.8" fill="none"/>
+    <path d="M190 90 C 240 90, 260 60, 270 40" stroke="var(--line2)" stroke-width="1.8" fill="none"/>
+    <path d="M190 100 C 250 110, 270 120, 280 130" stroke="var(--line2)" stroke-width="1.8" fill="none"/>
+    <rect x="6" y="18" width="50" height="26" rx="6" stroke="var(--line2)" stroke-width="1.5"/>
+    <rect x="6" y="132" width="50" height="26" rx="6" stroke="var(--line2)" stroke-width="1.5"/>
+    <rect x="244" y="18" width="50" height="26" rx="6" stroke="var(--line2)" stroke-width="1.5"/>
+    <rect x="244" y="132" width="50" height="26" rx="6" stroke="var(--line2)" stroke-width="1.5"/>
+    <line x1="60" y1="205" x2="240" y2="205" stroke="var(--line2)" stroke-width="2" stroke-dasharray="10 8"/>
+    <circle cx="150" cy="205" r="6" fill="var(--warm)"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta">
+      <h2><span class="n">01</span> O bilhete que a IA lê antes de te atender</h2>
+      <p>Todo agente de IA lê um arquivo específico antes de processar qualquer mensagem sua — sempre, em toda conversa nova. Pensa numa recepcionista que, antes de te atender, sempre dá uma olhada rápida num bilhete fixado na entrada com os avisos do dia: quem é quem, o que está em andamento, o que evitar. O <span class="gterm" tabindex="0" data-def="Um arquivo de texto simples que a IA lê automaticamente antes de qualquer mensagem sua — funciona como o bilhete de avisos que ela sempre confere primeiro.">CLAUDE.md</span> cumpre esse papel. Você digita só "oi", e por trás, a IA já leu esse bilhete inteiro antes de responder — é por isso que a resposta pode vir contextualizada, do tipo "pronta quando você estiver — só um lembrete: o evento X é essa sexta, o projeto Y abre no dia tal".</p>
+      <p>Um CLAUDE.md de verdade costuma ter um formato parecido, não importa a profissão de quem escreveu: primeiro, o papel do agente ("você é meu assistente, seu trabalho é..."); depois, um mapa que diz onde procurar cada assunto — "se for sobre X, o caminho é Y" — pra cada área importante do seu trabalho. O ".md" no nome é só a extensão do arquivo, um código curto que diz o tipo: texto simples formatado (chamado markdown), do jeito que ".py" indica um programa de computador ou ".txt" um texto puro sem formatação nenhuma.</p>
+      <p>Existe um jeito de fazer esse bilhete melhorar sozinho com o tempo: quando uma resposta sai ruim, você usa seu julgamento pra apontar o que faltou, e pede pra própria IA atualizar o CLAUDE.md com essa instrução. Um professor que percebe que as respostas sempre citam poucas fontes pode pedir isso; uma contadora autônoma incomodada com textos cheios de travessão longo sem necessidade pode fazer o mesmo — da próxima vez, a IA já sai melhor, sem você precisar reexplicar nada.</p>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta">
+      <h2><span class="n">02</span> Global vs. Projeto — duas camadas de memória</h2>
+      <p>Existem dois níveis onde esse bilhete pode viver, e a diferença importa. O nível <b>global</b> fica na sua pasta pessoal do computador e vale pra qualquer projeto que você abrir — é o lugar certo pra preferências que não mudam, tipo um jeito de escrever que você nunca quer ver na resposta (uma lista de frases que soam robóticas), ou coisas que a IA foi aprendendo sobre o seu jeito de trabalhar ao longo do tempo. O nível <b>de projeto</b> fica dentro da pasta de um projeto específico e só vale ali dentro.</p>
+      <p>Na prática: quando você abre uma pasta nova pela primeira vez, a IA pergunta se pode confiar naquele lugar — ela vai poder ler, escrever e até executar coisas ali dentro, então só autorize pastas que você realmente reconhece. E se a pasta é nova, não precisa montar nada sozinho: basta pedir pra própria IA "inicializa esse projeto com um CLAUDE.md" que ela já cria a estrutura básica.</p>
+      <p>Um consultor freelancer que atende três clientes diferentes pode ter um CLAUDE.md global com o próprio jeito de escrever e-mail, e um CLAUDE.md de projeto separado pra cada cliente, com o contexto que só vale pra aquele contrato; uma dona de pequeno negócio com só uma loja pode nem sentir falta do nível de projeto, e usar quase só o global.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta">
+      <h2><span class="n">03</span> Modos de permissão: da pergunta constante ao piloto automático</h2>
+      <p>Existe um controle que decide o quanto a IA para pra te perguntar "posso fazer isso?" antes de agir. No modo automático (o padrão, bom pra maioria dos casos), ela pergunta antes de ações mais sensíveis. Dá pra apertar esse controle pro lado mais cauteloso, exigindo permissão pra cada passo, ou soltar totalmente — um modo em que ela nunca para pra perguntar nada, que precisa ser ligado de propósito nas configurações, porque é arriscado por padrão.</p>
+      <p>Existe uma história real que mostra onde mora o risco de verdade: um agente de uma equipe mandou um e-mail com cupom de desconto pra 150 mil pessoas sem que ninguém tivesse pedido isso. O problema não foi o modo de permissão escolhido — foi o agente TER ACESSO à ferramenta de enviar e-mail, quando só devia ter acesso à ferramenta de rascunhar. A permissão real não está só no que você escreve pra IA não fazer: está em quais ferramentas ela literalmente consegue usar.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Confiar só na instrução escrita ("não envie nada sem eu revisar") pra segurar um agente.</b> Instrução escrita ajuda, mas quem realmente trava uma ação indevida é não dar acesso à ferramenta que faz o estrago — se o agente pode enviar, um dia ele vai enviar.</p>
+      </div>
+      <p>Uma coordenadora de RH que monta um agente pra triar currículos deve dar acesso só pra ler e organizar, nunca pra responder candidatos sozinho sem revisão; um professor que usa IA pra corrigir provas deve manter o lançamento de notas fora do alcance automático, revisando antes de publicar.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta">
+      <h2><span class="n">04</span> Dentro da pasta de apoio: permissões, agentes, receitas prontas</h2>
+      <p>Além do bilhete principal, todo projeto pode ter uma pasta de apoio (chamada <b>.claude</b>) que guarda três coisas importantes. A primeira é o arquivo de configurações — onde ficam as permissões: o que o agente PODE e o que NÃO PODE fazer, escritas em linguagem simples ("pode usar a tela de comando, pode buscar na internet, mas nunca apagar essa pasta específica"). Você não precisa saber escrever nesse formato técnico: descreve em português o que quer permitir ou proibir, e a própria IA edita o arquivo por você.</p>
+      <p>A segunda é uma pasta de agentes auxiliares — assistentes secundários com uma tarefa específica cada um, tema aprofundado num módulo mais à frente. A terceira é uma pasta de receitas prontas (skills) — instruções empacotadas que a IA carrega automaticamente quando o pedido combina com aquela receita, também aprofundado adiante.</p>
+      <p>Pensa nessa pasta como a sala de apoio atrás da recepção: o bilhete (CLAUDE.md) fica na entrada e é lido sempre; a sala de apoio só é aberta quando o assunto pede. Um consultor freelancer que atende clientes diferentes pode ter uma receita própria por cliente guardada ali; uma dona de pequeno negócio pode ter um agente auxiliar só pra organizar pedidos recebidos por WhatsApp.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="ferramenta">
+      <h2><span class="n">05</span> Uma chave de API é uma senha pros SEUS dados</h2>
+      <p>Duas ferramentas conversam entre si por um canal chamado <span class="gterm" tabindex="0" data-def="O método que um programa usa pra pedir informação ou uma ação a outro programa — como um telefone entre dois sistemas, cada um com seu jeito de atender.">API</span> — pensa nisso como um telefone direto entre dois programas. Sem nenhuma credencial, esse telefone só alcança informação pública: o Claude Code consegue ver dados públicos de qualquer canal do YouTube, por exemplo, mas não as métricas privadas do seu. A <b>chave de API</b> é o que destrava esse acesso privado — funciona como uma senha, e deve ser tratada com o mesmo cuidado de uma.</p>
+      <p>Onde essa chave fica guardada importa: existe um tipo de arquivo específico pra isso, chamado <b>.env</b> — pensa nele como um cofre dentro do próprio projeto, separado do resto, que nunca deve ser compartilhado nem publicado em lugar nenhum. Quando você pede pra IA criar esse arquivo, ela já cria junto uma trava (chamada .gitignore) que garante que aquele cofre nunca vá parar num lugar público por acidente.</p>
+      <p>Uma consultora freelancer que usa uma ferramenta de busca paga pra pesquisas de mercado, ou um professor que conecta um serviço de geração de slides — os dois precisam da mesma coisa: pegar a própria chave no site do serviço, e deixar a IA guardar no cofre certo.</p>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="6" data-kind="ferramenta">
+      <h2><span class="n">06</span> Testando de verdade: a lição que só apareceu com a chave errada</h2>
+      <p>Numa demonstração real, alguém conectou a chave de uma ferramenta de busca (a Tavily, que dá os primeiros mil usos de graça) seguindo uma sequência simples.</p>
+      <div class="qsteps">
+        <p class="qsk">Passo a passo</p>
+        <ol>
+          <li><b>Pegue a chave</b> — no site do serviço que você quer conectar, geralmente numa área chamada "API" ou "developers".</li>
+          <li><b>Peça pra IA criar o cofre</b> — "cria um arquivo .env nesse projeto" — ela cria o arquivo e a trava que impede vazamento.</li>
+          <li><b>Cole a chave</b> — dentro do arquivo, no formato que a própria IA indicar.</li>
+          <li><b>Peça um teste</b> — "testa se essa chave está funcionando" — a IA descobre sozinha o endereço certo do serviço e faz uma chamada de teste, sem que você precise ler nenhuma documentação técnica.</li>
+        </ol>
+      </div>
+      <p>O mesmo teste, de propósito, foi refeito com uma chave inválida — e a IA, sem nenhuma instrução extra, simplesmente voltou a usar sua própria busca nativa em vez de avisar que a chave falhou. A lição: seja explícito ("não use a busca nativa, use só a Tavily"), porque sem essa instrução um agente pode silenciosamente escolher um caminho alternativo pior, sem te contar. Depois de corrigir a chave, vale pedir pra IA guardar o endereço do serviço e a forma de autenticação no próprio CLAUDE.md — assim, da próxima vez, ela não perde tempo "redescobrindo" o mesmo caminho.</p>
+      <p>Um contador autônomo que conecta uma ferramenta de consulta de dados públicos de empresas, ou uma coordenadora de RH que conecta uma plataforma de vagas — o roteiro é sempre o mesmo: pegar a chave, guardar no cofre, testar, e deixar a IA anotar o caminho pra não redescobrir depois.</p>
+      <div class="mobfig" data-mobfig="6"></div>
+      <button class="readbtn" data-read="s6">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="7" data-kind="fundamento">
+      <h2><span class="n">07</span> Trate toda chave como um cartão sem limite</h2>
+      <p>Ao criar uma chave nova pra qualquer serviço, normalmente dá pra restringir de duas formas: um limite de gasto (ela para de funcionar depois de um valor definido) e um limite de capacidade (só pode fazer uma coisa específica, não tudo que o serviço oferece). Uma chave pra gerar efeito sonoro não precisa também ter acesso a dublagem ou outros recursos do mesmo serviço.</p>
+      <p><b>Você daria um cartão de crédito sem limite pra um funcionário novo? Trate toda chave de API do mesmo jeito.</b> A regra prática pra guiar essa escolha: se o seu agente PUDER tocar num dado, assuma que ele VAI tocar — mesmo sem você pedir. Por isso, dê só o acesso mínimo que a tarefa exige, nunca o máximo disponível.</p>
+      <p>Isso conversa direto com privacidade: em planos de assinatura pessoal, treinar a IA com os seus dados passou a ser uma escolha que você faz ativamente, e dá pra ligar ou desligar nas configurações — mas mesmo desligado, a empresa por trás da IA ainda tem acesso aos seus dados, só não usa pra treinar. Antes de colar contrato, dado de cliente ou qualquer informação sensível, vale conferir a política da sua empresa. Uma coordenadora de RH nunca deveria colar dado pessoal de candidato num chat sem saber essa política; pro contador autônomo, o mesmo cuidado vale pra dado bancário de cliente.</p>
+      <div class="mobfig" data-mobfig="7"></div>
+      <button class="readbtn" data-read="s7">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="analise">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Decida o que revogar num agente com acesso demais</h3>
+      <p class="pgoal">Meta: ler um mini-caso real e decidir quais ferramentas deveriam ser revogadas antes de confiar o agente numa tarefa de verdade. ~8 min.</p>
+      <p class="psafe">Isso é um exercício de leitura e julgamento — nenhum agente de verdade é criado ou alterado aqui. Não existe resposta registrada em lugar nenhum; o gabarito serve só pra você comparar seu raciocínio.</p>
+      <p>Leia o mini-caso abaixo e anote, antes de abrir o gabarito, o que você revogaria.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Mini-caso: você monta um agente pra organizar sua caixa de entrada de e-mail.
+Ele tem acesso a: ler e-mails, rascunhar respostas, enviar e-mails,
+apagar e-mails antigos, e acessar sua agenda.
+Seu pedido foi só: "organiza minha caixa de entrada e sinaliza o que é urgente".</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Anote quais dos cinco acessos você manteria e quais revogaria.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Abra o gabarito abaixo e compare com o seu raciocínio.</label></li>
+      </ol>
+      <details><summary>ver gabarito</summary>
+      <p>Manteria: ler e-mails, rascunhar respostas, acessar a agenda (precisa pra saber o que é urgente perto de um compromisso). Revogaria: enviar e-mails e apagar e-mails antigos — nenhum dos dois foi pedido, e os dois causam dano real se o agente errar sozinho. O pedido foi "organizar e sinalizar", não "responder e limpar" — a regra é dar só o acesso que a tarefa pedida exige, nunca o pacote inteiro por comodidade.</p>
+      </details>
+      <p class="pdone">Você acabou de praticar, num caso sem risco, a mesma pergunta que evita o tipo de erro que manda e-mail pra 150 mil pessoas sem ninguém pedir.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> o bilhete que a IA sempre lê primeiro, antes de qualquer resposta"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="70" y="30" width="80" height="50" rx="8" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="60" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--accent)">CLAUDE.md</text>
+        <path d="M70 70 L30 110" stroke="var(--line2)" stroke-width="1.8"/>
+        <path d="M150 70 L190 110" stroke="var(--line2)" stroke-width="1.8"/>
+        <path d="M110 80 L110 130" stroke="var(--line2)" stroke-width="1.8"/>
+        <circle cx="30" cy="120" r="14" stroke="var(--line2)" stroke-width="1.8"/>
+        <circle cx="190" cy="120" r="14" stroke="var(--line2)" stroke-width="1.8"/>
+        <circle cx="110" cy="140" r="14" stroke="var(--line2)" stroke-width="1.8"/>
+        <text x="110" y="176" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--muted)">você digita "oi"</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> global vale em qualquer projeto; de projeto só vale ali dentro"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="90" cy="100" r="72" stroke="var(--line2)" stroke-width="2"/>
+        <text x="90" y="40" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--muted)">global</text>
+        <rect x="120" y="90" width="70" height="50" rx="8" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="155" y="119" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">projeto</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> o que trava de verdade não é o texto do pedido — é a ferramenta que o agente pode usar"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <line x1="30" y1="120" x2="190" y2="120" stroke="var(--line2)" stroke-width="3"/>
+        <circle cx="60" cy="120" r="8" stroke="var(--line2)" stroke-width="2"/>
+        <text x="60" y="145" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--muted)">pergunta sempre</text>
+        <circle cx="160" cy="120" r="8" fill="var(--warm)"/>
+        <text x="160" y="145" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--warm)">nunca pergunta</text>
+        <path d="M150 92 L160 102 M170 92 L160 102" stroke="var(--warm)" stroke-width="2"/>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> a pasta de apoio atrás da recepção — permissões, agentes e receitas prontas"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M40 60 L40 150 Q40 158 48 158 L172 158 Q180 158 180 150 L180 80 Q180 72 172 72 L110 72 L98 58 L48 58 Q40 58 40 60 Z" stroke="var(--ink-soft)" stroke-width="2.2" stroke-linejoin="round"/>
+        <text x="110" y="120" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">.claude</text>
+        <circle cx="75" cy="140" r="7" stroke="var(--accent)" stroke-width="1.8"/>
+        <circle cx="110" cy="140" r="7" stroke="var(--accent)" stroke-width="1.8"/>
+        <circle cx="145" cy="140" r="7" stroke="var(--accent)" stroke-width="1.8"/>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> a chave destrava só os SEUS dados privados — sem ela, o acesso é só público"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="80" cy="100" r="26" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="80" cy="100" r="8" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="104" y1="100" x2="160" y2="100" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="140" y1="100" x2="140" y2="116" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="155" y1="100" x2="155" y2="112" stroke="var(--accent)" stroke-width="3"/>
+      </svg></div>
+      <div class="fig" data-fig="6" data-cap="<b>Fig.</b> pegar a chave, criar o cofre, colar, testar — sem ler nenhuma documentação técnica"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="30" cy="100" r="16" stroke="var(--accent)" stroke-width="2.2"/><text x="30" y="105" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--accent)">1</text>
+        <line x1="46" y1="100" x2="74" y2="100" stroke="var(--line2)" stroke-width="1.8"/>
+        <circle cx="90" cy="100" r="16" stroke="var(--accent)" stroke-width="2.2"/><text x="90" y="105" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--accent)">2</text>
+        <line x1="106" y1="100" x2="134" y2="100" stroke="var(--line2)" stroke-width="1.8"/>
+        <circle cx="150" cy="100" r="16" stroke="var(--accent)" stroke-width="2.2"/><text x="150" y="105" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--accent)">3</text>
+        <line x1="166" y1="100" x2="178" y2="100" stroke="var(--line2)" stroke-width="1.8"/>
+        <circle cx="194" cy="100" r="16" stroke="var(--warm)" stroke-width="2.5"/><text x="194" y="105" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--warm)">4</text>
+      </svg></div>
+      <div class="fig" data-fig="7" data-cap="<b>Fig.</b> dê só o acesso mínimo — nunca o cartão sem limite"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="40" y="70" width="140" height="86" rx="12" stroke="var(--line2)" stroke-width="2"/>
+        <line x1="40" y1="98" x2="180" y2="98" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="56" y="112" width="30" height="20" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="56" y1="145" x2="140" y2="145" stroke="var(--line2)" stroke-width="1.5"/>
+        <circle cx="150" cy="130" r="22" stroke="var(--warm)" stroke-width="2.5"/>
+        <line x1="136" y1="116" x2="164" y2="144" stroke="var(--warm)" stroke-width="2.5"/>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho desta aula pra virar um cartão de revisão automático — funciona em qualquer step.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>O CLAUDE.md é lido antes de qualquer resposta — funciona como um roteador que aponta onde procurar cada assunto, não uma enciclopédia com tudo escrito dentro.</li>
+    <li>O que trava de verdade um agente não é a instrução escrita, é qual ferramenta ele tem acesso pra usar — dê só o mínimo que a tarefa exige.</li>
+    <li>Toda chave de API é uma senha pros seus dados privados; trate com o mesmo cuidado de um cartão sem limite.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de entender por que um agente com acesso demais é mais perigoso do que um agente mal instruído — a base de qualquer configuração daqui pra frente.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: escreva as três primeiras linhas do seu próprio CLAUDE.md — quem você é e o que você faz.</p>
+  <p class="na-hook">No próximo módulo, você conecta esse contexto a todas as ferramentas que já usa no trabalho — e-mail, agenda, planilhas — construindo o que este curso chama de sistema operacional de IA.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 3 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-3">
+[
+  {"front":"Você abre uma pasta nova no computador e a IA pergunta se pode confiar nela. O que essa permissão realmente libera?","back":"Ler, escrever e até executar coisas dentro daquela pasta — por isso só autorize pastas que você reconhece de verdade."},
+  {"front":"Um agente tem acesso pra ler e enviar e-mail, mas você só pediu pra organizar a caixa de entrada. O que fazer?","back":"Revogar o acesso de enviar — dê só o acesso mínimo que a tarefa pedida exige, nunca o pacote inteiro."},
+  {"front":"Qual a diferença entre CLAUDE.md global e de projeto?","back":"Global vale em qualquer pasta que você abrir no computador; de projeto só vale dentro daquela pasta específica."},
+  {"front":"Por que guardar uma chave de API só no .env, em vez de colar direto na conversa?","back":"Porque o .env é um cofre separado, protegido por uma trava que impede que a chave vaze pra um lugar público por acidente."}
+]
+</script>
+
+<!-- COMPLETUDE aula-3 | tipo=FERRAMENTA | steps=7 | tempo=20min (palavras≈2391/200 + prática 8min → repassar pro data-tempo="__TEMPO__" do <section id="v-aula-3"> em fragments/00-shell.html)
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              valor calculado e reportado (repassar __TEMPO__ no shell) (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (7/7)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (7/7)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-3"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [N/A] teste-se-FUND     tipo=FERRAMENTA — sempre N/A (nenhum .quiz opcional usado neste módulo)
+-->

@@ -1,0 +1,231 @@
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 4</p>
+    <h1>Seu próprio<br><em>sistema operacional de IA</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue mapear quais ferramentas do seu trabalho valeriam a pena conectar primeiro, entender por que preferir chave de API a um botão de conectar pronto, e reconhecer a hora de encerrar uma conversa longa e recomeçar com um resumo em vez de deixar a IA perder qualidade — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Você já monta pedidos melhores e já sabe proteger o acesso da IA — mas ainda sente que cada conversa nova começa do zero, repetindo o mesmo contexto, e não sabe reconhecer quando uma sessão longa começa a atrapalhar em vez de ajudar.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <circle cx="150" cy="120" r="44" stroke="var(--accent)" stroke-width="2.8"/>
+    <circle cx="150" cy="120" r="10" fill="var(--accent)"/>
+    <line x1="150" y1="76" x2="150" y2="40" stroke="var(--line2)" stroke-width="1.8"/>
+    <line x1="188" y1="98" x2="220" y2="70" stroke="var(--line2)" stroke-width="1.8"/>
+    <line x1="188" y1="142" x2="220" y2="170" stroke="var(--line2)" stroke-width="1.8"/>
+    <line x1="112" y1="98" x2="80" y2="70" stroke="var(--line2)" stroke-width="1.8"/>
+    <line x1="112" y1="142" x2="80" y2="170" stroke="var(--line2)" stroke-width="1.8"/>
+    <rect x="126" y="16" width="48" height="24" rx="6" stroke="var(--line2)" stroke-width="1.8"/>
+    <rect x="222" y="56" width="48" height="24" rx="6" stroke="var(--line2)" stroke-width="1.8"/>
+    <rect x="222" y="158" width="48" height="24" rx="6" stroke="var(--line2)" stroke-width="1.8"/>
+    <rect x="30" y="56" width="48" height="24" rx="6" stroke="var(--line2)" stroke-width="1.8"/>
+    <rect x="30" y="158" width="48" height="24" rx="6" stroke="var(--line2)" stroke-width="1.8"/>
+    <line x1="0" y1="215" x2="60" y2="215" stroke="var(--line2)" stroke-width="2" stroke-dasharray="10 8"/>
+    <line x1="240" y1="215" x2="300" y2="215" stroke="var(--line2)" stroke-width="2" stroke-dasharray="10 8"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="fundamento">
+      <h2><span class="n">01</span> Contexto, conexões, capacidades, cadência</h2>
+      <p>Quando um projeto central de IA está conectado a todas as ferramentas do seu negócio, com contexto completo sobre o que você faz, ele passa a funcionar como uma espécie de <span class="gterm" tabindex="0" data-def="O projeto central de IA de alguém, conectado às ferramentas do próprio trabalho, com memória e contexto completos — funciona como uma central que sabe o negócio quase tão bem quanto o próprio dono.">sistema operacional de IA</span> — memória perfeita, busca instantânea, e contexto que nenhum humano consegue guardar todo na cabeça ao mesmo tempo. Existe até um caso real curioso: numa equipe, quando alguém não localiza o líder, manda mensagem direto pro sistema de IA dele — que responde melhor e mais rápido do que o próprio líder responderia.</p>
+      <p>Esse sistema se organiza em quatro partes, chamadas aqui de quatro Cs: <b>contexto</b> (o que a IA sabe sobre você e seu negócio) e <b>conexões</b> (quais ferramentas ela alcança) formam o que os próximos módulos chamam de "segundo cérebro"; <b>capacidades</b> e <b>cadência</b> (as receitas prontas e as rotinas automáticas) vêm depois, quando o segundo cérebro já está de pé.</p>
+      <div class="qapply">
+        <p class="qak">Isso muda pra você se...</p>
+        <ul>
+          <li><b>Contador(a) autônomo(a):</b> contexto = seus clientes e prazos fiscais; conexões = a planilha onde já lança tudo; capacidades = lembretes automáticos de vencimento.</li>
+          <li><b>Coordenador(a) de RH:</b> contexto = processos seletivos abertos; conexões = a caixa de e-mail e a planilha de vagas; capacidades = triagem de currículo já com nota de prioridade.</li>
+          <li><b>Professor(a):</b> contexto = as turmas e o plano de aula da semana; conexões = a pasta de materiais; capacidades = correção assistida de redação.</li>
+        </ul>
+      </div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta">
+      <h2><span class="n">02</span> Como escolher o que conectar primeiro</h2>
+      <p>Não dá — e não vale a pena — conectar tudo de uma vez. Comece pelo que os negócios em geral mais dependem: receita, clientes, agenda, comunicação, tarefas, reuniões e conhecimento acumulado. Existe um jeito simples de descobrir quais dessas ferramentas são as suas: olhe as abas abertas agora no seu navegador, os favoritos salvos, o histórico recente — é isso que você mais visita, e é isso que mais vale a pena conectar primeiro.</p>
+      <p>O caminho pra conectar qualquer uma delas segue sempre o mesmo roteiro: buscar "[nome da ferramenta] API documentation", pedir pra IA ler essa documentação e configurar a conexão, pegar a chave de acesso no site da ferramenta, e colar no cofre (.env) do projeto — o mesmo processo do módulo anterior, repetido ferramenta por ferramenta.</p>
+      <p>Um professor que vive entre e-mail, agenda de aulas e uma pasta de materiais tem ali os três primeiros candidatos óbvios; uma dona de pequeno negócio que vive numa planilha de vendas e no WhatsApp Business tem os dela. Uma medida simples de progresso vale mais que qualquer meta abstrata: quanto do seu dia você consegue resolver só dentro dessa janela de conversa com a IA, sem trocar de programa?</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta">
+      <h2><span class="n">03</span> Um canal só pra Drive, Gmail, Agenda e mais</h2>
+      <p>Existe uma ferramenta gratuita e de código aberto do próprio Google que dá acesso, por um único canal, a Drive, Gmail, Agenda, Documentos, Planilhas e Apresentações — com mais de cem tarefas prontas, tipo gerar um documento a partir de modelo, ler dados de uma planilha e montar um relatório, ou achar um horário livre e marcar uma reunião sozinha. A vantagem sobre conectar cada ferramenta separadamente: uma interface só, respostas num formato que a IA entende bem, e atualização automática sempre que o Google adiciona algo novo — depois de configurado uma vez, dá pouquíssimo trabalho de manutenção.</p>
+      <div class="qsteps">
+        <p class="qsk">Passo a passo (uma vez só)</p>
+        <ol>
+          <li><b>Peça pra IA instalar</b> — ela lê o repositório (a pasta pública onde a ferramenta mora, aberta pra qualquer um consultar) e configura sozinha.</li>
+          <li><b>Crie um projeto no painel do Google</b> — a área onde o Google organiza permissões pra ferramentas externas.</li>
+          <li><b>Configure a tela de consentimento</b> — escolha "interno" se for só pra você usar.</li>
+          <li><b>Crie uma credencial</b> — tipo "aplicativo de computador", e baixe o arquivo que ela gera.</li>
+          <li><b>Autentique uma vez</b> — um comando abre o navegador pra você confirmar que é você mesmo.</li>
+          <li><b>Habilite cada serviço</b> — Drive, Gmail, Agenda etc., um clique em "ativar" por serviço, direto no painel do Google.</li>
+        </ol>
+      </div>
+      <p>Depois de pronto, os pedidos ficam simples: achar um documento do Google que você só lembra vagamente; ler os e-mails não lidos e dar nota de prioridade baseada no que importa pro seu negócio, marcando como lido automaticamente o que é baixa prioridade; ou criar uma apresentação inteira, com a própria IA tirando print do resultado, comparando com a identidade visual esperada, e corrigindo espaçamento sozinha até bater. Uma consultora freelancer que perde documentos entre projetos ganha o achar-documento; um contador autônomo que lida com dezenas de e-mails de clientes por dia ganha a triagem por prioridade.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="fundamento">
+      <h2><span class="n">04</span> ".env" ou "conectar" — a decisão que evita retrabalho</h2>
+      <p>Muitos aplicativos de IA já trazem um botão pronto de "conectar", com login simples, pra serviços comuns — bem mais fácil do que configurar chave e cofre na mão. O problema é onde essa conexão fica presa: ela vale só pra aquele aplicativo específico. Se você trocar de aplicativo, de interface ou até de empresa de IA — o que já aconteceu mais de uma vez nos últimos anos — perde todas as conexões feitas e precisa refazer uma por uma.</p>
+      <p>Já a chave de API guardada no cofre (.env) não pertence a nenhum aplicativo: é só uma pasta e um arquivo de texto. Qualquer IA, de qualquer empresa, rodando em qualquer interface, consegue ler o mesmo cofre. <b>Ser independente de ferramenta é a parte mais importante disso tudo</b> — porque modelo e interface mudam toda semana, mas seus dados e suas conexões não deveriam precisar mudar junto.</p>
+      <p>Um dono de pequeno negócio que testa duas ou três interfaces de IA diferentes ao longo do ano economiza um bom tempo se as conexões já estiverem no cofre, prontas pra qualquer uma delas usar; um consultor freelancer que troca de assinatura de vez em quando tem exatamente o mesmo ganho.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="fundamento">
+      <h2><span class="n">05</span> A receita que a IA aprende de cor</h2>
+      <p>Uma <span class="gterm" tabindex="0" data-def="Uma instrução escrita, guardada num arquivo simples, que ensina a IA a repetir um processo específico do seu jeito — a IA só lê o arquivo inteiro quando o pedido combina com aquela receita.">skill</span> (receita, em português direto) é uma instrução escrita que ensina a IA a repetir um processo do seu jeito. Pensa numa receita de bolo: na primeira vez você segue ao pé da letra; depois de fazer um punhado de vezes, já sabe de cor e ajusta no olho. Uma skill funciona assim — só que quem "decora" a receita é a IA, não você.</p>
+      <p>O truque que evita desperdício: a IA não lê todas as receitas guardadas por inteiro toda vez — ela dá só uma espiada rápida no título e na descrição de cada uma, decide qual combina com o que você pediu, e só aí lê essa receita inteira antes de agir. Isso é o que mantém o sistema rápido mesmo com dezenas de receitas guardadas.</p>
+      <p>Existem duas formas de criar uma: pedir pra montar do zero, explicando passo a passo o que você quer; ou fazer o processo manualmente uma vez, e só depois pedir "transforma isso que a gente acabou de fazer numa receita". Uma coordenadora de RH que triou manualmente sua caixa de entrada por semanas pode, depois, pedir pra virar uma receita fixa — e o melhor: se um e-mail foi classificado errado, ela conta o motivo, e a IA já ajusta a própria receita sozinha, sem precisar reescrever nada na mão.</p>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="6" data-kind="fundamento">
+      <h2><span class="n">06</span> A janela de contexto enche — e o julgamento piora</h2>
+      <p>Motorista de caminhão só pode dirigir um número limitado de horas antes de descansar — não porque perdeu a habilidade, mas porque o julgamento piora com o cansaço, mesmo sem ele perceber. Com IA acontece uma coisa parecida: quanto mais cheia fica a <span class="gterm" tabindex="0" data-def="O espaço onde cabe tudo que entra numa conversa — sua mensagem, os arquivos lidos, as respostas anteriores. Quando enche, a qualidade da resposta cai, mesmo sem nenhum aviso claro.">janela de contexto</span> daquela conversa, pior fica a qualidade da resposta — mesmo que o modelo continue "sabendo" tudo tecnicamente.</p>
+      <div class="qanchor"><p>A janela de contexto é como a carga horária de um motorista de caminhão: depois de um tempo, o julgamento piora — não pela falta de capacidade, mas pelo cansaço acumulado.</p></div>
+      <p>A prática recomendada é encerrar a conversa bem antes de chegar no limite — perto de um quarto do espaço total já é hora de recomeçar. Mas recomeçar do zero significa perder todo o contexto acumulado, e é aí que entra um passo simples: antes de fechar, peça pra IA gerar um resumo estruturado da sessão — onde começou, o que ficou decidido, o que foi entregue, o que ainda está em aberto. Você copia esse resumo, começa uma conversa nova, cola o resumo de volta, e a conversa continua exatamente de onde parou, só que com muito mais espaço livre.</p>
+      <p>Uma consultora freelancer numa sessão longa de planejamento de projeto, ou um professor organizando o material de um semestre inteiro numa única conversa — os dois se beneficiam do mesmo hábito: resumir e recomeçar antes que a qualidade caia, em vez de esperar a IA "esquecer" sozinha.</p>
+      <div class="mobfig" data-mobfig="6"></div>
+      <button class="readbtn" data-read="s6">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="tarefa">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Mapeie as três primeiras conexões do seu sistema operacional de IA</h3>
+      <p class="pgoal">Meta: listar as ferramentas que você mais usa e decidir a ordem de conexão. Ficou pronto quando você tiver 3 ferramentas nomeadas, em ordem de prioridade. ~10 min.</p>
+      <p class="psafe">Nada aqui conecta nada de verdade — é só um mapa no papel ou num bloco de notas. Não gostou da ordem que escolheu? Reordena à vontade, sem custo nenhum.</p>
+      <p>Abaixo está um modelo pronto — como uma receita com espaços em branco. Você só preenche o que está marcado entre <b>&lt; &gt;</b>.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Minhas abas mais abertas essa semana: &lt;liste 3 a 5&gt;
+
+As 3 ferramentas que eu conectaria primeiro, em ordem:
+1. &lt;ferramenta&gt; — porque &lt;o motivo, ex.: "é onde toda tarefa nova chega"&gt;
+2. &lt;ferramenta&gt; — porque &lt;motivo&gt;
+3. &lt;ferramenta&gt; — porque &lt;motivo&gt;</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Olhe suas abas abertas, favoritos ou histórico recente e liste de 3 a 5 ferramentas.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Escolha as 3 primeiras a conectar e escreva o motivo de cada uma vir nessa ordem.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de desenhar o começo do seu próprio sistema operacional de IA — o próximo passo real é só repetir, ferramenta por ferramenta, o roteiro do passo 2 deste módulo.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> contexto e conexões formam o segundo cérebro; capacidades e cadência vêm depois"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="100" r="60" stroke="var(--line2)" stroke-width="2"/>
+        <line x1="50" y1="100" x2="170" y2="100" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="110" y1="40" x2="110" y2="160" stroke="var(--line2)" stroke-width="1.5"/>
+        <text x="75" y="72" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">contexto</text>
+        <text x="148" y="72" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">conexões</text>
+        <text x="75" y="132" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">capacidades</text>
+        <text x="148" y="132" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--muted)">cadência</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> suas abas mais abertas já mostram o que vale a pena conectar primeiro"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="20" y="50" width="180" height="110" rx="10" stroke="var(--line2)" stroke-width="2"/>
+        <line x1="20" y1="76" x2="200" y2="76" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="30" y="58" width="46" height="14" rx="4" stroke="var(--accent)" stroke-width="1.8"/>
+        <rect x="80" y="58" width="46" height="14" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="130" y="58" width="46" height="14" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <circle cx="53" cy="65" r="2" fill="var(--accent)"/>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> um canal só, várias ferramentas do Google do outro lado"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="100" r="26" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="105" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">GWS</text>
+        <line x1="110" y1="74" x2="110" y2="34" stroke="var(--line2)" stroke-width="1.6"/>
+        <line x1="132" y1="118" x2="168" y2="150" stroke="var(--line2)" stroke-width="1.6"/>
+        <line x1="88" y1="118" x2="52" y2="150" stroke="var(--line2)" stroke-width="1.6"/>
+        <line x1="134" y1="88" x2="176" y2="66" stroke="var(--line2)" stroke-width="1.6"/>
+        <line x1="86" y1="88" x2="44" y2="66" stroke="var(--line2)" stroke-width="1.6"/>
+        <circle cx="110" cy="24" r="10" stroke="var(--line2)" stroke-width="1.6"/>
+        <circle cx="176" cy="60" r="10" stroke="var(--line2)" stroke-width="1.6"/>
+        <circle cx="176" cy="156" r="10" stroke="var(--line2)" stroke-width="1.6"/>
+        <circle cx="44" cy="60" r="10" stroke="var(--line2)" stroke-width="1.6"/>
+        <circle cx="44" cy="156" r="10" stroke="var(--line2)" stroke-width="1.6"/>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> conector preso a um app só; chave no cofre serve pra qualquer IA"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="24" y="70" width="60" height="40" rx="8" stroke="var(--line2)" stroke-width="2"/>
+        <text x="54" y="94" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">app A</text>
+        <path d="M84 90 L120 90" stroke="var(--warm)" stroke-width="2"/>
+        <path d="M108 82 L120 90 L108 98" stroke="var(--warm)" stroke-width="2" fill="none"/>
+        <rect x="24" y="130" width="60" height="40" rx="8" stroke="var(--line2)" stroke-width="2"/>
+        <text x="54" y="154" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">.env</text>
+        <path d="M84 150 C 120 150, 130 100, 150 60" stroke="var(--accent)" stroke-width="2.2" fill="none"/>
+        <path d="M84 150 C 120 150, 150 150, 175 150" stroke="var(--accent)" stroke-width="2.2" fill="none"/>
+        <circle cx="150" cy="52" r="10" stroke="var(--accent)" stroke-width="1.8"/>
+        <circle cx="182" cy="150" r="10" stroke="var(--accent)" stroke-width="1.8"/>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> a IA espia só o título de cada receita antes de decidir qual ler inteira"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="50" y="30" width="120" height="24" rx="6" stroke="var(--line2)" stroke-width="1.6"/>
+        <rect x="50" y="62" width="120" height="24" rx="6" stroke="var(--line2)" stroke-width="1.6"/>
+        <rect x="50" y="94" width="120" height="24" rx="6" stroke="var(--accent)" stroke-width="2.4"/>
+        <rect x="50" y="126" width="120" height="24" rx="6" stroke="var(--line2)" stroke-width="1.6"/>
+        <path d="M170 106 L190 106" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M182 98 L190 106 L182 114" stroke="var(--accent)" stroke-width="2" fill="none"/>
+      </svg></div>
+      <div class="fig" data-fig="6" data-cap="<b>Fig.</b> quanto mais cheia a janela, pior o julgamento — mesmo sem aviso claro"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M40 140 A 70 70 0 0 1 180 140" stroke="var(--line2)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M120 140 A 70 70 0 0 1 180 140" stroke="var(--warm)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <line x1="110" y1="140" x2="150" y2="80" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="110" cy="140" r="6" fill="var(--accent)"/>
+        <text x="110" y="172" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--muted)">janela de contexto</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho desta aula pra virar um cartão de revisão automático — funciona em qualquer step.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>O sistema operacional de IA é o mesmo projeto de sempre, só que conectado a todas as ferramentas que você usa, com contexto acumulado — comece pelas ferramentas que suas próprias abas abertas já denunciam como as mais importantes.</li>
+    <li>Prefira sempre chave de API guardada no cofre a um botão de conectar pronto: o botão prende você a um aplicativo específico, a chave serve pra qualquer IA, hoje ou daqui a um ano.</li>
+    <li>Uma sessão longa demais piora o julgamento da IA mesmo sem avisar — resuma e recomece antes de sentir a resposta cair de qualidade.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de desenhar o mapa das primeiras conexões do seu próprio sistema operacional de IA — o esqueleto que os próximos módulos vão preencher.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: pegue a ferramenta número 1 do seu mapa e busque "[nome dela] API documentation" pra ver o primeiro passo real de conexão.</p>
+  <p class="na-hook">No próximo módulo, você aprofunda o contexto — a parte do sistema que decide se a IA te conhece de verdade ou só está adivinhando.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 4 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-4">
+[
+  {"front":"Por que preferir chave de API guardada no cofre a um botão de 'conectar' pronto?","back":"Porque o botão de conectar fica preso àquele aplicativo específico; a chave no cofre (.env) serve pra qualquer IA, em qualquer interface, mesmo se você trocar de ferramenta."},
+  {"front":"Como decidir quais ferramentas conectar primeiro no seu sistema operacional de IA?","back":"Olhe suas abas abertas, favoritos e histórico recente — são elas que você mais usa, e são elas que valem mais a pena conectar primeiro."},
+  {"front":"Sua conversa com a IA está ficando longa e as respostas parecem piores. O que fazer antes de continuar?","back":"Pedir um resumo estruturado da sessão, copiar, começar uma conversa nova, colar o resumo de volta — em vez de empurrar a mesma janela cheia até o limite."}
+]
+</script>
+
+<!-- COMPLETUDE aula-4 | tipo=PRATICA | steps=6 | tempo=21min (palavras≈2036/200 + prática 10min → repassar pro data-tempo="__TEMPO__" do <section id="v-aula-4"> em fragments/00-shell.html)
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              valor calculado e reportado (repassar __TEMPO__ no shell) (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (6/6)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (6/6)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-4"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [N/A] teste-se-FUND     tipo=PRATICA — sempre N/A, mesmo com teste-se opcional presente
+-->

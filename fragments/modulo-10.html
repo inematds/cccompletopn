@@ -1,0 +1,219 @@
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 10</p>
+    <h1>A última peça:<br><em>manter tudo leve</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue explicar por que uma conversa longa com IA fica cara sem você perceber, descobrir na prática pra onde seus tokens estão indo e aplicar o primeiro hábito pra cortar esse peso, e fechar este curso com um plano concreto do que fazer daqui pra frente — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Você já sentiu a sessão de IA ficando mais lenta, mais cara, ou dando respostas piores depois de muita conversa — e não sabia bem por quê. Não é impressão sua: cada mensagem nova recarrega a conversa inteira desde o início, e isso tem um custo real, tanto em dinheiro quanto na qualidade da resposta.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <rect x="20" y="170" width="18" height="18" rx="3" stroke="var(--ink-soft)" stroke-width="2"/>
+    <rect x="55" y="150" width="30" height="38" rx="3" stroke="var(--ink-soft)" stroke-width="2"/>
+    <rect x="105" y="120" width="46" height="68" rx="3" stroke="var(--ink-soft)" stroke-width="2"/>
+    <rect x="170" y="80" width="66" height="108" rx="3" stroke="var(--warm)" stroke-width="2.5"/>
+    <line x1="0" y1="205" x2="300" y2="205" stroke="var(--line2)" stroke-width="1.5"/>
+    <line x1="245" y1="205" x2="245" y2="40" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <rect x="255" y="150" width="30" height="38" rx="3" stroke="var(--accent)" stroke-width="2.5"/>
+    <text x="270" y="205" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--accent)">leve</text>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="fundamento">
+      <h2><span class="n">01</span> Por que a conversa fica cara sem você perceber</h2>
+      <p>Toda vez que você manda uma mensagem, a IA relê a conversa inteira desde o começo — o custo não soma, ele multiplica. Uma primeira mensagem pode custar uma quantidade pequena de token (a unidade que mede o quanto uma IA "lê" e "escreve"); a trigésima mensagem da mesma conversa pode custar trinta vezes mais, porque está relendo tudo que veio antes, de novo. Um desenvolvedor mediu uma sessão de mais de 100 mensagens e descobriu que 98,5% de todo o custo era só releitura de histórico antigo — não processamento de coisa nova.</p>
+      <p>Existe também um custo invisível: a cada mensagem, arquivos de instrução, ferramentas conectadas e as regras do sistema são recarregados por baixo dos panos, mesmo num simples "oi". E além do dinheiro, sessões muito longas pioram a qualidade da resposta — a IA tende a prestar mais atenção no início e no fim da conversa, e "esquecer" um pouco o que ficou no meio.</p>
+      <div class="qbefore-after">
+        <div class="qba-col qba-before"><p class="qba-lbl">Antes</p><p class="qba-txt">Você manda 30 mensagens soltas numa sessão, sem nunca limpar — cada mensagem nova relê tudo desde a primeira, e por volta da trigésima já custa dezenas de vezes mais que a primeira.</p></div>
+        <div class="qba-col qba-depois"><p class="qba-lbl">Depois</p><p class="qba-txt">Você limpa a conversa sempre que troca de assunto, junta pedidos numa mensagem só, e checa de vez em quando pra onde o token está indo.</p></div>
+        <p class="qba-saldo"><b>Saldo:</b> a mesma quantidade de trabalho, por uma fração do custo — e com respostas mais precisas, porque a sessão nunca fica pesada demais.</p>
+      </div>
+      <p>Uma consultora freelancer que percebe respostas mais genéricas depois de uma hora de conversa não está imaginando coisa — é o efeito de sessão pesada; um professor que se assustou com uma conta mais alta num mês descobriu depois que tinha deixado uma única conversa aberta por semanas, sem nunca limpar.</p>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta">
+      <h2><span class="n">02</span> Os hábitos básicos — pra todo mundo</h2>
+      <p>Um punhado de hábitos simples já resolve boa parte do desperdício. Limpar a conversa sempre que muda de assunto, em vez de carregar um assunto novo em cima do antigo. Desligar ferramentas conectadas que você não está usando — cada uma carrega suas próprias instruções em toda mensagem, e algumas custam sozinhas milhares de tokens por mensagem. Juntar pedidos numa mensagem só, em vez de mandar três separadas (e, se algo saiu errado, editar a mensagem original é mais barato do que mandar uma correção nova em cima). Usar o modo de planejamento antes de qualquer tarefa real, deixando a IA mapear a abordagem e fazer perguntas antes de gastar token indo pro caminho errado. E existem dois comandos que mostram exatamente o que normalmente fica escondido: um mostra pra onde os tokens estão indo (histórico, ferramentas conectadas, arquivos carregados), o outro mostra o gasto estimado da sessão.</p>
+      <p>Um dono de pequeno negócio que manda três pedidos separados numa manhã corrida paga o preço de três releituras completas — juntar tudo numa mensagem só já economiza de verdade; uma coordenadora de RH que desliga uma ferramenta conectada que não usa mais numa determinada semana sente a diferença direto no custo daquela sessão.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta">
+      <h2><span class="n">03</span> Hábitos de quem já usa toda semana</h2>
+      <p>Existe um arquivo especial, chamado <span class="gterm" tabindex="0" data-def="Arquivo especial que funciona como a constituição do seu projeto — as regras e informações fixas que a IA relê no início de toda conversa nova.">CLAUDE.md</span>, que guarda as regras fixas do seu projeto — e ele é relido em toda mensagem, mesmo um simples "oi". Por isso vale mantê-lo enxuto, tratando-o como um índice que aponta pra onde mais informação mora, não como uma enciclopédia que tenta guardar tudo. Outro hábito que ajuda: ser cirúrgico ao apontar um documento específico, em vez de pedir pra IA "procurar em tudo". E vale limpar ou resumir a conversa por volta de 60% de uso da janela, sem esperar o limite máximo — e cuidado com pausas longas, porque o desconto de reaproveitamento (explicado no próximo passo) expira depois de um tempo parado.</p>
+      <div class="qsteps">
+        <p class="qsk">Passo a passo</p>
+        <ol>
+          <li><b>Revise</b> — abra seu CLAUDE.md de vez em quando e veja se ele ainda está enxuto.</li>
+          <li><b>Aponte, não copie</b> — troque blocos longos por uma linha curta que aponta pra onde a informação completa mora.</li>
+          <li><b>Resuma cedo</b> — assim que perceber a sessão passando de 60% de uso, sem esperar o aviso automático do limite.</li>
+        </ol>
+      </div>
+      <p>Um professor que mantém um "caderno de instruções" enxuto pra IA, em vez de colar o material inteiro do curso toda vez, sente a diferença na velocidade e no custo das respostas; uma contadora autônoma que cuida pra nunca deixar uma sessão pausada por muito tempo evita reprocessar tudo do zero na próxima mensagem.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta">
+      <h2><span class="n">04</span> Escolhendo a ferramenta certa pra cada tarefa</h2>
+      <p>Nem toda tarefa precisa do modelo de IA mais caro e mais poderoso. Um modelo mais rápido e barato resolve bem tarefas simples e repetitivas; o modelo padrão dá conta do trabalho do dia a dia; e o modelo mais caro, mais lento e mais profundo vale a pena guardar só pra planejamento importante — de preferência menos de um quinto do seu uso total. Sub-agentes custam bem mais tokens que uma sessão normal, porque cada um acorda com contexto cheio do zero — ainda assim compensam quando usados pra tarefas pontuais e paralelas, principalmente com um modelo mais barato.</p>
+      <p>Vale entender também que o consumo drena mais rápido em horário de pico — deixar refatorações grandes ou tarefas com vários agentes pra fora desse horário rende mais. E o CLAUDE.md funciona bem como "constituição" do seu jeito de trabalhar: guardar ali decisões estáveis, nunca reexplicar a mesma coisa duas vezes.</p>
+      <p>Uma consultora freelancer que só precisa formatar um documento simples ganha tempo usando o modelo mais rápido, guardando o mais caro pra decisões que exigem raciocínio fundo; um dono de pequeno negócio que evita mandar uma tarefa grande justo no horário mais concorrido do dia sente a sessão render mais.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="fundamento">
+      <h2><span class="n">05</span> O desconto que você já está pagando sem saber</h2>
+      <p>Existe um mecanismo chamado <span class="gterm" tabindex="0" data-def="Guardar uma cópia do que já foi processado, pra reaproveitar depois por um preço bem menor, em vez de reprocessar tudo de novo do zero.">cache de prompt</span> por trás de boa parte da economia: tokens reaproveitados desse jeito custam só 10% do preço normal. Na assinatura comum, essa janela de reaproveitamento dura 1 hora — se você fica mais de uma hora sem mandar mensagem, a próxima reprocessa a conversa inteira do zero, no preço cheio. O que quebra esse desconto no meio do caminho: trocar de modelo durante a mesma sessão reinicia o reaproveitamento, mesmo que seja só pra economizar noutra frente — é um trade-off consciente. Já editar o CLAUDE.md não quebra o desconto na hora, só quando a sessão reinicia de fato.</p>
+      <p>Três hábitos cobrem a maior parte dos casos: não deixar uma sessão pausada por mais de uma hora sem necessidade; limpar ou resumir sempre que trocar de assunto; e, pra documentos grandes que você usa toda semana, guardá-los num só lugar de referência em vez de colar de novo em cada conversa solta.</p>
+      <p>Uma coordenadora de RH que sai pro almoço por mais de uma hora e volta pra mesma conversa sente a próxima resposta demorar mais e custar mais — é o desconto expirando; um professor que usa sempre o mesmo plano de aula como referência ganha guardando esse plano num só lugar de consulta, em vez de colar de novo toda conversa nova.</p>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="6" data-kind="fundamento">
+      <h2><span class="n">06</span> Bater no limite pode ser um bom sinal</h2>
+      <p>Existe uma forma mais justa de pensar sobre bater no limite de uso: se você já pratica os hábitos deste módulo e ainda assim bate no limite, isso não é necessariamente ruim — é sinal de que está usando a ferramenta pra valer, extraindo o valor real dela, não desperdiçando. O problema quase nunca é "preciso de um plano maior" — geralmente é higiene de contexto: parar de reenviar a mesma conversa inteira dezenas de vezes quando dava pra mandar bem menos, de forma mais enxuta.</p>
+      <div class="qanchor"><p>Não é sobre saber mais. É sobre pra onde a mão vai por reflexo quando a tarefa aparece.</p></div>
+      <p>Este curso cobriu fundamentos, estrutura de projeto, segundo cérebro, times de agentes, automações e agora gestão de tokens — dez módulos que formam a base pra você se tornar alguém que já pensa com IA por padrão. O convite final é simples: continue praticando, trate essa jornada como algo que nunca "termina", e vá construindo o seu próprio jeito de trabalhar em torno de quatro peças — o que você guarda (contexto), o que você conecta ao vivo (conexões), o que a IA consegue fazer por você (capacidades), e a frequência com que você repete esse ciclo (cadência).</p>
+      <p>Uma professora que aplicar só um hábito deste módulo por semana já vai sentir a diferença em um mês; um dono de pequeno negócio que trata esse aprendizado como contínuo, não como algo "concluído" num certificado, é quem realmente extrai o valor de tudo o que este curso trouxe.</p>
+      <div class="mobfig" data-mobfig="6"></div>
+      <button class="readbtn" data-read="s6">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="tarefa">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Descubra pra onde seus tokens estão indo — e corte o primeiro peso</h3>
+      <p class="pgoal">Meta: rodar dois comandos de diagnóstico na sua sessão e aplicar 1 hábito deste módulo esta semana. ~10 min.</p>
+      <p class="psafe">Nada aqui apaga ou altera nada — os comandos abaixo só mostram informação, não mudam sua sessão. Não gostou do resultado? É só rodar de novo quando quiser.</p>
+      <p>Digite os dois comandos abaixo, um de cada vez, na mesma conversa que você já tem aberta com o Claude Code.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">/context
+/cost</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Rode /context e veja quanto da sua janela está ocupada com histórico, ferramentas conectadas e arquivos carregados.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Escolha 1 hábito deste módulo (ex.: limpar a conversa entre assuntos, ou desligar uma ferramenta que você não usa) e aplique esta semana.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de tornar visível algo que estava invisível — o primeiro passo pra manter qualquer sessão de IA leve, barata e com respostas melhores.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> cada mensagem relê tudo desde o início — o custo cresce, não soma"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <line x1="20" y1="175" x2="200" y2="175" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="30" y="165" width="16" height="10" stroke="var(--ink-soft)" stroke-width="2"/>
+        <rect x="60" y="140" width="16" height="35" stroke="var(--ink-soft)" stroke-width="2"/>
+        <rect x="90" y="105" width="16" height="70" stroke="var(--ink-soft)" stroke-width="2"/>
+        <rect x="120" y="60" width="16" height="115" stroke="var(--warm)" stroke-width="2.5"/>
+        <text x="38" y="188" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">msg 1</text>
+        <text x="128" y="188" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--warm)">msg 30</text>
+        <text x="128" y="50" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--warm)">dezenas de x</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> juntar pedidos numa mensagem só custa uma releitura, não três"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="30" y="40" width="70" height="20" rx="5" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="30" y="70" width="70" height="20" rx="5" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="30" y="100" width="70" height="20" rx="5" stroke="var(--line2)" stroke-width="1.5"/>
+        <path d="M105 50 L140 75 L105 110" stroke="var(--accent)" stroke-width="2" fill="none"/>
+        <rect x="150" y="60" width="50" height="30" rx="6" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="175" y="79" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">1 msg</text>
+        <circle cx="45" cy="150" r="14" stroke="var(--faint)" stroke-width="2"/>
+        <line x1="36" y1="141" x2="54" y2="159" stroke="var(--faint)" stroke-width="2"/>
+        <text x="100" y="155" font-family="var(--mono)" font-size="8" fill="var(--faint)">ferramenta desligada</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> um CLAUDE.md enxuto funciona como índice, não como enciclopédia"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="60" y="30" width="70" height="90" rx="6" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="72" y1="50" x2="118" y2="50" stroke="var(--accent)" stroke-width="1.5"/>
+        <line x1="72" y1="65" x2="118" y2="65" stroke="var(--accent)" stroke-width="1.5"/>
+        <line x1="72" y1="80" x2="100" y2="80" stroke="var(--accent)" stroke-width="1.5"/>
+        <rect x="20" y="140" width="45" height="18" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="90" y="140" width="45" height="18" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="155" y="140" width="45" height="18" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="80" y1="120" x2="42" y2="140" stroke="var(--line2)" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <line x1="95" y1="120" x2="112" y2="140" stroke="var(--line2)" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <line x1="110" y1="120" x2="177" y2="140" stroke="var(--line2)" stroke-width="1.2" stroke-dasharray="3 3"/>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> modelo rápido pro simples, padrão pro trabalho, o mais caro só pra planejar fundo"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="45" cy="130" r="16" stroke="var(--line2)" stroke-width="2"/>
+        <text x="45" y="160" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">rápido</text>
+        <circle cx="110" cy="110" r="26" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="160" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--accent)">padrão</text>
+        <circle cx="185" cy="85" r="36" stroke="var(--warm)" stroke-width="2"/>
+        <text x="185" y="145" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--warm)">~1/5 do uso</text>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> dentro de 1h, o token custa 10% do preço — depois disso, reprocessa tudo de novo"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="80" cy="100" r="55" stroke="var(--accent)" stroke-width="2.5"/>
+        <line x1="80" y1="100" x2="80" y2="60" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="80" y1="100" x2="108" y2="112" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="80" y="170" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--accent)">1h · 10% do preço</text>
+        <path d="M150 60 A40 40 0 1 1 149 140" stroke="var(--warm)" stroke-width="2" fill="none" stroke-dasharray="5 4"/>
+        <text x="185" y="103" font-family="var(--mono)" font-size="8" fill="var(--warm)">depois: 100%</text>
+      </svg></div>
+      <div class="fig" data-fig="6" data-cap="<b>Fig.</b> contexto, conexões, capacidades, cadência — as 4 peças que continuam depois do curso"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="45" cy="60" r="16" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="45" y="64" text-anchor="middle" font-family="var(--mono)" font-size="7.5" fill="var(--accent)">contexto</text>
+        <circle cx="140" cy="50" r="16" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="140" y="54" text-anchor="middle" font-family="var(--mono)" font-size="6.8" fill="var(--accent)">conexões</text>
+        <circle cx="55" cy="140" r="16" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="55" y="144" text-anchor="middle" font-family="var(--mono)" font-size="6.5" fill="var(--accent)">capacidades</text>
+        <circle cx="155" cy="145" r="16" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="155" y="149" text-anchor="middle" font-family="var(--mono)" font-size="7" fill="var(--accent)">cadência</text>
+        <path d="M20 175 Q110 210 200 175" stroke="var(--line2)" stroke-width="2" stroke-dasharray="6 5"/>
+        <path d="M190 168 L202 175 L190 182" stroke="var(--line2)" stroke-width="2"/>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho desta aula pra virar um cartão de revisão automático — funciona em qualquer step.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>O custo de uma conversa com IA cresce porque cada mensagem relê tudo desde o início — não é impressão sua, é um efeito cumulativo real.</li>
+    <li>Um punhado de hábitos simples — limpar a conversa entre assuntos, manter o CLAUDE.md enxuto, o modelo certo pra cada tarefa — resolve a maior parte do desperdício, sem precisar de nada avançado.</li>
+    <li>Bater no limite não é falha se você já pratica boa higiene de contexto — é sinal de que a ferramenta está sendo usada pra valer.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de tornar visível pra onde seus tokens estavam indo — e fechou os dez módulos deste curso com um jeito concreto de manter tudo leve.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: escolha 1 hábito deste módulo, o mais fácil pra você, e aplique na próxima conversa que abrir com a IA.</p>
+  <p class="na-hook">Este curso não tem um capítulo 11 — o próximo capítulo é a sua rotina real. Volte a qualquer módulo sempre que precisar, e deixe cada semana virar mais um pedaço do seu trabalho transformado em sistema.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 10 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-10">
+[
+  {"front":"Sua conversa com a IA está na mensagem 30 e parece mais lenta e mais cara que a mensagem 3. Por quê?","back":"Cada mensagem nova relê a conversa inteira desde o início — o custo é cumulativo, não linear. Em sessões longas, boa parte dos tokens gastos é só relendo histórico antigo."},
+  {"front":"Você ficou 2 horas sem mandar mensagem numa sessão e voltou. O que acontece com o preço da próxima mensagem?","back":"O desconto de reaproveitamento (cache) expira depois de 1 hora parado — a próxima mensagem reprocessa a conversa inteira do zero, no preço cheio, em vez do desconto de uma resposta reaproveitada."},
+  {"front":"Você trocou de modelo mais caro pro mais barato no meio da mesma sessão pra economizar. Isso tem um custo escondido — qual?","back":"Trocar de modelo reinicia o desconto de reaproveitamento (cache), mesmo dentro da mesma sessão — é um trade-off consciente entre economizar no modelo e perder esse desconto."},
+  {"front":"Você segue as boas práticas de token e mesmo assim bate no limite toda semana. Isso é sinal de desperdício?","back":"Não necessariamente — se a higiene de contexto já está sendo aplicada, bater no limite é sinal de que você está extraindo o valor real da ferramenta, não de que precisa de um plano maior."}
+]
+</script>
+
+<!-- COMPLETUDE aula-10 | tipo=PRATICA | steps=6
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (6/6)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (6/6)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-10"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [N/A] teste-se-FUND     tipo=PRATICA: item não se aplica (sem teste-se nesta aula)
+-->

@@ -1,0 +1,212 @@
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 5</p>
+    <h1>O que a IA lembra<br><em>e o que vale automatizar</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue explicar a diferença entre a memória automática do Claude Code e o seu CLAUDE.md, decidir qual processo do seu trabalho vale a pena automatizar primeiro usando a lógica do gargalo, e definir uma única métrica que prova se deu certo — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Você já corrige a mesma coisa toda conversa com a IA, e quando pensa em automatizar algo do seu trabalho, não sabe por onde começar nem como vai saber, depois, se aquilo realmente valeu o esforço.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <rect x="24" y="70" width="26" height="18" rx="3" stroke="var(--ink-soft)" stroke-width="2.5"/>
+    <line x1="50" y1="79" x2="70" y2="79" stroke="var(--ink-soft)" stroke-width="2.5"/>
+    <path d="M70 79 C 95 79, 100 110, 120 118 C 145 128, 150 95, 168 100 C 180 103, 178 118, 168 122 C 155 127, 160 150, 185 155 C 210 160, 220 140, 240 148" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M232 150 L246 195 L288 195 L296 150 Z" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="228" y1="150" x2="300" y2="150" stroke="var(--ink-soft)" stroke-width="2"/>
+    <circle cx="256" cy="205" r="3" fill="var(--warm)"/>
+    <circle cx="270" cy="211" r="2.5" fill="var(--warm)"/>
+    <line x1="10" y1="205" x2="290" y2="205" stroke="var(--line2)" stroke-width="1.5"/>
+    <rect x="118" y="28" width="44" height="32" rx="3" stroke="var(--warm)" stroke-width="2"/>
+    <line x1="126" y1="39" x2="154" y2="39" stroke="var(--warm)" stroke-width="1.5"/>
+    <line x1="126" y1="48" x2="148" y2="48" stroke="var(--warm)" stroke-width="1.5"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta">
+      <h2><span class="n">01</span> O Claude Code aprende sozinho — até certo ponto</h2>
+      <p>Depois de um tempo de uso, o Claude Code passa a escrever, sozinho, os fatos que aprendeu sobre você e o seu trabalho — sem que você peça. Essa <span class="gterm" tabindex="0" data-def="Um recurso do Claude Code que, depois de um tempo de uso, escreve sozinho os fatos que aprendeu sobre você e seu trabalho, num arquivo separado — sem você precisar repetir tudo de novo toda conversa.">memória automática</span> guarda cada fato aprendido num arquivo próprio, curto, dentro de uma pasta só dela: no caso de quem gravou este curso, já são 72 arquivos individuais, cada um com um nome que explica do que trata — algo como "como o Noel gosta que eu organize os lembretes" ou "como a estrutura da empresa funciona". No topo de cada arquivo existe uma etiqueta curta dizendo se aquilo é uma preferência, uma correção ou uma referência, e um arquivo-índice reúne todas elas.</p>
+      <p>Pra conferir se está ligada — vem ligada por padrão — existe um comando específico que mostra o status, mas ele só aparece na versão do Claude Code que funciona por comandos de texto digitados numa tela, não no aplicativo mais simples, de janelas e botões. Uma contadora autônoma que corrige o Claude Code três vezes sobre como prefere que as notas fiscais sejam separadas por cliente não precisa corrigir uma quarta vez — depois de algumas sessões, isso já virou fato lembrado. O mesmo vale pra um professor que sempre repete o mesmo critério de correção: a memória automática aprende esse padrão sozinha.</p>
+      <div class="qbefore-after">
+        <div class="qba-col qba-before"><p class="qba-lbl">Antes</p><p class="qba-txt">Você repete o mesmo contexto — sua preferência, sua forma de organizar, sua correção de sempre — em praticamente toda conversa nova.</p></div>
+        <div class="qba-col qba-depois"><p class="qba-lbl">Depois</p><p class="qba-txt">O que você corrigiu vira fato lembrado sozinho: da próxima vez, o Claude Code já chega sabendo, sem você repetir.</p></div>
+        <p class="qba-saldo"><b>Saldo:</b> menos tempo repetindo o óbvio, mais sessões que já começam no ponto onde a anterior parou.</p>
+      </div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="fundamento">
+      <h2><span class="n">02</span> Regra, fato aprendido ou mapa — três camadas diferentes</h2>
+      <p>É fácil confundir três coisas que parecem a mesma "memória", mas cumprem papéis diferentes. O CLAUDE.md são as <b>regras</b> que você escreve — o que a IA deve sempre fazer, do seu jeito, sem exceção. O arquivo de memória automática são os <b>fatos aprendidos</b> — preferências corrigidas, decisões tomadas, referências guardadas, escritos pela própria IA ao longo do tempo. E existe uma terceira camada, maior: um <span class="gterm" tabindex="0" data-def="Uma coleção organizada de documentos em texto simples que guarda o conhecimento de um negócio ou área inteira, escrita de um jeito que tanto uma pessoa quanto uma IA conseguem consultar rapidamente.">segundo cérebro</span> — um mapa do negócio inteiro, não só das suas preferências pessoais (este curso aprofunda essa ideia no módulo 8). O CLAUDE.md funciona como um roteador: quando a IA não sabe algo de cara, ele aponta pra onde mais procurar — na memória, no mapa maior, nos projetos.</p>
+      <p>A ideia do segundo cérebro vem de um post que viralizou: em vez de bancos de dados complicados de tecnologia, basta organizar documentos em texto simples — o próprio modelo consegue manter índices e resumos, e navegar entre eles sem se perder, mesmo em cem artigos ou meio milhão de palavras. Um caso real citado: alguém organizou 383 arquivos soltos e mais de cem transcrições de reunião numa wiki compacta, e o gasto de "munição de leitura" da IA a cada consulta (o que o custo e a velocidade dependem) caiu 95%.</p>
+      <p>Um coordenador de RH que mantém as políticas internas espalhadas em quinze arquivos soltos ganha muito mais organizando tudo num só lugar navegável do que só corrigindo a IA sessão após sessão; uma consultora freelancer que atende doze clientes diferentes só evita confundir o contexto de um cliente com o de outro se tiver esse mapa maior, e não só a memória automática de preferências gerais.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="fundamento">
+      <h2><span class="n">03</span> Antes de automatizar, ache o gargalo</h2>
+      <p>Pensa no seu negócio como um cano de água: os pedidos e clientes entram de um lado, atravessam o processo, e do outro lado sai o resultado — o trabalho entregue, o lucro. Em algum ponto desse cano sempre existe um aperto, um <span class="gterm" tabindex="0" data-def="O ponto mais apertado de um processo — aquele que trava tudo o que vem depois dele, mesmo que o resto funcione bem.">gargalo</span>, que limita o quanto passa, não importa quão bem o resto funcione. Automatizar uma parte do cano que já flui bem não muda nada no que sai do outro lado — só o gargalo, quando destravado, muda o resultado final.</p>
+      <p>A pergunta que revela onde ele está: "se amanhã eu tivesse cinco vezes mais clientes, o que quebraria primeiro?" Essa pergunta obriga a mapear o processo de verdade, em vez de adivinhar. E depois de destravar um gargalo, mais água passa pelo cano — e o próximo aperto aparece em outro lugar. É um ciclo sem fim, mas cada rodada dá um roteiro claro de por onde seguir.</p>
+      <div class="qanchor"><p>A restrição é o único lugar onde o trabalho realmente compõe — automatizar o resto é só ficar ocupado.</p></div>
+      <p>Uma dona de pequena loja descobre, fazendo essa pergunta, que o gargalo não é vender mais — é dar conta de responder os pedidos que já chegam pelo WhatsApp a tempo de não perder a venda. Um contador autônomo descobre que o gargalo não é fechar as contas mais rápido — é o tempo que perde esperando os clientes juntarem os documentos certos.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="fundamento">
+      <h2><span class="n">04</span> Uma métrica só, definida antes de começar</h2>
+      <p>Todo projeto ou automação precisa de uma <span class="gterm" tabindex="0" data-def="O número único que todo mundo concorda, antes de começar, que vai provar se aquele projeto ou automação deu certo — não uma sensação, um número.">métrica norte</span> — combinada antes de construir qualquer coisa, não depois. Voltando ao exemplo do cano: se o gargalo identificado é "poucos pedidos entrando" (digamos, cinco por semana), a métrica norte vira "quinze por semana". Sem esse número acordado com antecedência, ninguém sabe, meses depois, se a automação valeu o esforço — medir o retorno de uma automação não é tão direto quanto "gastei X em anúncio, entrou Y de receita".</p>
+      <p>Uma professora que decide automatizar parte da correção de provas só sabe se valeu a pena se, antes de começar, tiver decidido o número: cair de três horas para uma hora por turma, por exemplo. Uma consultora freelancer que automatiza o acompanhamento de propostas enviadas precisa da mesma clareza prévia: a métrica pode ser a taxa de resposta dos clientes, não "parece que está indo melhor".</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="fundamento">
+      <h2><span class="n">05</span> Você não automatiza o que não consegue desenhar no papel</h2>
+      <p>Se o seu trabalho ainda não tem escala pra pensar em gargalos formais, existe um exercício mais simples: escrever, literalmente num papel, que processos e ferramentas você usa toda semana, o que se repete, e quais são os seus <span class="gterm" tabindex="0" data-def="O evento que dispara uma tarefa — um pedido chegando, um chamado de suporte abrindo, um e-mail novo caindo na caixa de entrada.">gatilhos</span> — o que acontece que te faz agir. Isso costuma revelar de cinco a dez processos candidatos; escolha o que acontece com mais frequência, a menos que seja arriscado demais mexer nele agora.</p>
+      <p>Não importa quão bom seja o modelo de IA por trás — sem o entendimento profundo do processo, a expertise que só você tem sobre o seu próprio trabalho, a IA não faz nada significativo com os dados do seu negócio. É a mesma lógica por trás da frase atribuída a Abraham Lincoln: "se eu tivesse seis horas pra derrubar uma árvore, passaria as primeiras quatro afiando o machado." O tempo gasto mapeando e planejando antes de automatizar vale muito mais do que pular direto pra execução.</p>
+      <div class="quiz" data-answer="b">
+        <p class="qk">Teste-se</p>
+        <p class="q">Antes de automatizar qualquer processo do seu trabalho, qual desses passos vem primeiro?</p>
+        <button class="opt" data-k="a">escolher a ferramenta de IA mais avançada disponível</button>
+        <button class="opt" data-k="b" data-fb="Sem mapear o processo real, a IA não tem o que usar — é a mesma lógica de afiar o machado antes de derrubar a árvore: o tempo gasto mapeando vale mais do que pular direto pra execução.">mapear o processo real no papel e achar o gargalo, mesmo que dê trabalho</button>
+        <button class="opt" data-k="c">perguntar pra própria IA qual processo automatizar primeiro, sem dar contexto nenhum</button>
+        <p class="qfb"></p>
+      </div>
+      <p>Uma professora que mapeia no papel as etapas da correção — ler, comparar com o gabarito, dar a nota, escrever o comentário — descobre com clareza qual etapa vale a pena passar pra IA. Um coordenador de RH que mapeia as etapas da triagem de currículos antes de automatizar qualquer parte evita automatizar exatamente a etapa errada.</p>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="tarefa">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Ache seu gargalo e escreva sua métrica norte</h3>
+      <p class="pgoal">Meta: listar seus processos da semana, marcar o gargalo mais urgente e escrever a única métrica que vai provar se resolver ele valeu a pena. ~10 min.</p>
+      <p class="psafe">Nada aqui muda nada no seu trabalho de verdade — é só uma lista no papel ou num app de notas. Não gostou do resultado? Rasque e comece de novo.</p>
+      <p>Abaixo está um modelo pronto — como uma ficha com espaços em branco. Você só preenche o que está marcado entre <b>&lt; &gt;</b>.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Meu cano esta semana:
+- Processos e ferramentas que uso toda semana: &lt;liste de 3 a 5&gt;
+- O que mais se repete ou trava: &lt;o que acontece com mais frequência&gt;
+- Se amanhã eu tivesse 5x mais clientes/alunos/pedidos, o que quebraria primeiro: &lt;seu gargalo&gt;
+
+Minha métrica norte pra esse gargalo: &lt;o número que prova que deu certo, ex.: "de 5 pra 15 por semana"&gt;</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Preencha o modelo acima com a sua semana real, sem enfeitar.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Releia a métrica norte em voz alta — se não for um número único e claro, reescreva até ficar.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de fazer, na prática, o que separa quem automatiza por acaso de quem automatiza o que realmente importa — achou o gargalo certo e decidiu como vai saber se deu certo.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> cada fato aprendido vira um arquivo próprio, reunido num índice — a memória automática"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="20" y="30" width="26" height="20" rx="3" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="20" y="60" width="26" height="20" rx="3" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="20" y="90" width="26" height="20" rx="3" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="20" y="120" width="26" height="20" rx="3" stroke="var(--line2)" stroke-width="2"/>
+        <text x="33" y="44" text-anchor="middle" font-family="var(--mono)" font-size="7" fill="var(--muted)">.md</text>
+        <text x="33" y="74" text-anchor="middle" font-family="var(--mono)" font-size="7" fill="var(--muted)">.md</text>
+        <text x="33" y="104" text-anchor="middle" font-family="var(--mono)" font-size="7" fill="var(--muted)">.md</text>
+        <text x="33" y="134" text-anchor="middle" font-family="var(--mono)" font-size="7" fill="var(--muted)">.md</text>
+        <path d="M50 40 L110 95" stroke="var(--line2)" stroke-width="1.5"/>
+        <path d="M50 70 L110 95" stroke="var(--line2)" stroke-width="1.5"/>
+        <path d="M50 100 L110 95" stroke="var(--line2)" stroke-width="1.5"/>
+        <path d="M50 130 L110 95" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="112" y="78" width="90" height="34" rx="8" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="157" y="99" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--accent)">memory.md</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> regra, fato aprendido e mapa do negócio — três camadas, três funções diferentes"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="40" y="24" width="140" height="34" rx="8" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="45" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--accent)">CLAUDE.md · regras</text>
+        <path d="M110 58 L110 76" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M110 76 L102 68 M110 76 L118 68" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="40" y="80" width="140" height="34" rx="8" stroke="var(--warm)" stroke-width="2.5"/>
+        <text x="110" y="101" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--warm)">memory.md · fatos</text>
+        <path d="M110 114 L110 132" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M110 132 L102 124 M110 132 L118 124" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="40" y="136" width="140" height="34" rx="8" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <text x="110" y="157" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--muted)">wiki · o negócio inteiro</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> o cano tem um aperto — o gargalo é o que decide quanto passa, não o resto do cano"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="10" y="86" width="60" height="28" stroke="var(--line2)" stroke-width="2.5"/>
+        <path d="M70 86 L120 96 L120 104 L70 114 Z" stroke="var(--warm)" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="120" y="92" width="90" height="16" stroke="var(--line2)" stroke-width="2.5"/>
+        <text x="40" y="70" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--muted)">clientes</text>
+        <text x="95" y="130" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--warm)">gargalo</text>
+        <text x="165" y="70" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--muted)">lucro</text>
+        <circle cx="25" cy="100" r="3" fill="var(--ink-soft)"/>
+        <circle cx="45" cy="100" r="3" fill="var(--ink-soft)"/>
+        <circle cx="150" cy="100" r="3" fill="var(--accent)"/>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> um único número, combinado antes de começar — é ele que prova se o gargalo foi resolvido"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="90" r="60" stroke="var(--line2)" stroke-width="2"/>
+        <circle cx="110" cy="90" r="38" stroke="var(--line2)" stroke-width="2"/>
+        <circle cx="110" cy="90" r="16" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="110" cy="90" r="4" fill="var(--accent)"/>
+        <text x="110" y="168" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--accent)">5 → 15 pedidos/semana</text>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> escrever no papel revela de 5 a 10 processos — o mais frequente é o candidato certo"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="30" y="20" width="130" height="150" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <line x1="46" y1="46" x2="144" y2="46" stroke="var(--line2)" stroke-width="2"/>
+        <line x1="46" y1="72" x2="144" y2="72" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="40" y="90" width="112" height="24" rx="4" fill="none" stroke="var(--warm)" stroke-width="2.5"/>
+        <line x1="46" y1="102" x2="144" y2="102" stroke="var(--warm)" stroke-width="2"/>
+        <line x1="46" y1="128" x2="144" y2="128" stroke="var(--line2)" stroke-width="2"/>
+        <line x1="46" y1="150" x2="144" y2="150" stroke="var(--line2)" stroke-width="2"/>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">O segundo cérebro (a wiki maior do negócio) volta com mais profundidade no módulo 8 — aqui você só precisa saber que ele existe e onde encaixa.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Memória automática guarda fatos que a IA aprendeu sozinha; CLAUDE.md guarda regras que você escreveu; um segundo cérebro organiza o conhecimento maior do negócio — três camadas diferentes, não a mesma coisa.</li>
+    <li>Nem todo processo merece ser automatizado primeiro — o gargalo é o único ponto onde destravar o trabalho muda o resultado final; o resto é só ficar ocupado.</li>
+    <li>Sem uma métrica combinada antes de começar, ninguém consegue provar depois que a automação valeu o esforço.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de identificar seu gargalo real e a métrica que vai provar se resolver ele valeu a pena.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: escreva a métrica norte que você definiu num lugar visível, e mostre pra alguém do seu trabalho ou família — se essa pessoa entender o número sem explicação, está pronto.</p>
+  <p class="na-hook">No próximo módulo, você aprende a delegar pedaços desse trabalho pra sub-agentes — equipes de IA trabalhando em paralelo, sem bagunçar a conversa principal.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 5 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-5">
+[
+  {"front":"Qual a diferença entre o que fica no CLAUDE.md e o que fica no arquivo de memória automática?","back":"CLAUDE.md são regras que você escreve (o que sempre fazer); no arquivo automático, é a própria IA quem registra, sozinha, as correções e preferências ao longo das sessões."},
+  {"front":"Você quer automatizar um processo do seu negócio, mas não sabe por onde começar. Qual pergunta faz primeiro?","back":"Se amanhã eu tivesse 5x mais clientes, o que quebraria primeiro? — essa pergunta revela o gargalo real, o ponto que trava tudo o resto, mesmo com o resto funcionando bem."},
+  {"front":"Depois de destravar um gargalo, o processo para de travar em algum lugar?","back":"Não — mais água passa pelo cano, e um novo aperto aparece em outro ponto. É um ciclo sem fim, mas cada rodada dá um roteiro claro de por onde seguir."},
+  {"front":"Você automatizou um processo, mas ninguém sabe se ele funcionou de verdade. O que provavelmente faltou antes de começar?","back":"Uma métrica norte combinada com antecedência — sem ela, ninguém prova depois que o esforço valeu a pena, porque medir retorno de automação não é tão direto quanto medir retorno de anúncio."},
+  {"front":"Por que a ideia de afiar o machado antes de derrubar a árvore se aplica a automatizar com IA?","back":"Porque sem mapear o processo real primeiro, mesmo o melhor modelo não tem o que usar — o tempo gasto entendendo o processo vale mais do que pular direto pra execução."}
+]
+</script>
+
+<!-- COMPLETUDE aula-5 | tipo=FUNDAMENTO | steps=5
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [PENDENTE-SHELL] tempo  data-tempo fica no elemento view do shell (fora deste fragmento, não editado) — valor calculado = 20min (1879 palavras/200 + 10min prática + 0.5min por 1 pergunta de teste-se), reportar pra montagem central preencher __TEMPO__
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (5/5)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (5/5)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-5"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: 1 quiz data-fb presente (step 5, data-answer="b")
+-->

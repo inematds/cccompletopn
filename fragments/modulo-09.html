@@ -1,0 +1,251 @@
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 9</p>
+    <h1>Um time de IAs<br><em>trabalhando enquanto você dorme</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue diferenciar sub-agentes de um time de agentes de verdade e escolher entre eles pra uma decisão sua, e reconhecer se uma automação deveria rodar por agenda (num horário fixo) ou por evento (só quando algo acontece) — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Você já delegou uma tarefa pra alguém e recebeu de volta um trabalho que não conversava com o resto da equipe — cada um resolveu a própria parte, sem ninguém amarrar o conjunto. Com IA acontece a mesma coisa, e saber a diferença entre "delegar" e "montar um time de verdade" evita gastar tempo tentando fazer uma coisa se comportar como a outra.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <rect x="25" y="40" width="40" height="30" rx="5" stroke="var(--ink-soft)" stroke-width="2"/>
+    <rect x="25" y="85" width="40" height="30" rx="5" stroke="var(--ink-soft)" stroke-width="2"/>
+    <rect x="25" y="130" width="40" height="30" rx="5" stroke="var(--ink-soft)" stroke-width="2"/>
+    <circle cx="110" cy="100" r="16" stroke="var(--muted)" stroke-width="2"/>
+    <line x1="94" y1="95" x2="65" y2="55" stroke="var(--line2)" stroke-width="1.5"/>
+    <line x1="94" y1="100" x2="65" y2="100" stroke="var(--line2)" stroke-width="1.5"/>
+    <line x1="94" y1="105" x2="65" y2="145" stroke="var(--line2)" stroke-width="1.5"/>
+    <line x1="0" y1="195" x2="300" y2="195" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <ellipse cx="220" cy="150" rx="55" ry="30" stroke="var(--accent)" stroke-width="2"/>
+    <circle cx="190" cy="115" r="10" stroke="var(--accent)" stroke-width="2.5"/>
+    <circle cx="250" cy="115" r="10" stroke="var(--accent)" stroke-width="2.5"/>
+    <circle cx="190" cy="185" r="10" stroke="var(--accent)" stroke-width="2.5"/>
+    <circle cx="250" cy="185" r="10" stroke="var(--accent)" stroke-width="2.5"/>
+    <line x1="196" y1="122" x2="244" y2="122" stroke="var(--line2)" stroke-width="1" stroke-dasharray="2 3"/>
+    <line x1="196" y1="178" x2="244" y2="178" stroke="var(--line2)" stroke-width="1" stroke-dasharray="2 3"/>
+    <line x1="196" y1="122" x2="196" y2="178" stroke="var(--line2)" stroke-width="1" stroke-dasharray="2 3"/>
+    <line x1="244" y1="122" x2="244" y2="178" stroke="var(--line2)" stroke-width="1" stroke-dasharray="2 3"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta">
+      <h2><span class="n">01</span> Delegar não é o mesmo que montar um time</h2>
+      <p>Um <span class="gterm" tabindex="0" data-def="Um assistente de IA que a sessão principal manda fazer uma tarefa específica, começa do zero e devolve só o resultado — sem conversar com outros assistentes.">sub-agente</span> funciona como um "1 pra muitos": a sessão principal delega uma tarefa, o sub-agente resolve sozinho numa janela nova e reporta só de volta pra sessão principal — sub-agentes não conversam entre si. Já um <span class="gterm" tabindex="0" data-def="Um grupo de assistentes de IA que trabalham ao mesmo tempo, compartilham uma lista de tarefas e conversam entre si — diferente de pedir a mesma IA pra fazer uma coisa de cada vez.">agent team</span> é outra coisa: a sessão principal cria o time, existe uma lista de tarefas compartilhada, e os membros conseguem se comunicar entre si e reivindicar tarefas dessa lista — é colaboração de verdade, não delegação isolada.</p>
+      <p>O trade-off é real: um agent team consome bem mais tokens e limite de sessão do que sub-agentes comuns, porque cada membro mantém contexto próprio e ainda troca mensagens com os outros. Vale usar com moderação, só quando o valor de várias perspectivas debatendo entre si compensa o custo.</p>
+      <div class="qbefore-after">
+        <div class="qba-col qba-before"><p class="qba-lbl">Antes</p><p class="qba-txt">Você pede pra IA "resolver isso em equipe" e recebe 3 respostas separadas, cada uma boa sozinha, mas que nunca se cruzam — ninguém debateu nada.</p></div>
+        <div class="qba-col qba-depois"><p class="qba-lbl">Depois</p><p class="qba-txt">Você monta um agent team de verdade: os membros dividem uma lista de tarefas compartilhada e conversam entre si antes de chegar numa resposta.</p></div>
+        <p class="qba-saldo"><b>Saldo:</b> decisões com mais de uma perspectiva de verdade — pelo preço de mais tokens gastos, então vale só quando o debate compensa o custo.</p>
+      </div>
+      <p>Uma consultora freelancer que precisa formatar três propostas parecidas ao mesmo tempo resolve bem com sub-agentes simples, cada um cuidando de uma proposta; já uma coordenadora de RH decidindo entre dois formatos de processo seletivo, algo que pesa de verdade, ganha mais com um agent team debatendo prós e contras entre si.</p>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta">
+      <h2><span class="n">02</span> O conselho que debate por você</h2>
+      <p>O uso mais comum de agent team é montar uma espécie de "conselho" ou "sala de guerra": um time com personas diferentes — por exemplo, dono de um negócio pequeno, dono de um negócio grande, e um funcionário júnior — discutindo o mesmo relatório ou decisão, com várias rodadas de debate até chegar num veredito coletivo. A base científica por trás disso vem de uma pesquisa da universidade de Stanford: pesquisa feita com várias personas atacando o mesmo assunto de ângulos diferentes produz um resultado mais completo e rigoroso do que uma perspectiva única.</p>
+      <p>Um dono de pequeno negócio decidindo se aumenta o preço de um produto pode montar esse conselho e ver o mesmo dado sendo debatido por perspectivas diferentes antes de decidir; um professor pode montar um debate entre personas que representam abordagens pedagógicas diferentes, pra escolher qual explica melhor um assunto difícil pra turma dele.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta">
+      <h2><span class="n">03</span> Seja explícito, ou a IA volta ao caminho simples</h2>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Pedir "cria um time de agentes" e receber sub-agentes comuns, sem nenhum debate entre eles.</b> Por padrão, a IA pode confundir o pedido com sub-agentes paralelos de sempre. Evite sendo explícito — peça a função de time de verdade e observe se existe uma lista de tarefas compartilhada entre eles, não só respostas paralelas.</p>
+      </div>
+      <p>Depois de um debate ou pesquisa longa, dá pra pedir "empacota isso numa página compartilhável" — a IA gera uma página bem formatada, hospedada num link real (não só no seu computador), que atualiza sozinha se você pedir mudanças depois, sem precisar mandar um arquivo novo pra quem recebeu o link.</p>
+      <p>Uma contadora autônoma que pede "monta um time pra revisar minha proposta de honorários" precisa reparar se o resultado realmente veio de um debate, ou só de respostas paralelas disfarçadas de time; uma consultora freelancer pode pedir a mesma página compartilhável pra mandar o resultado de uma pesquisa por link direto pra um cliente, sem precisar reenviar nada depois de ajustar.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta">
+      <h2><span class="n">04</span> Automações que rodam sem o computador ligado</h2>
+      <p>Uma <span class="gterm" tabindex="0" data-def="Sistema que fica configurado uma vez e roda sozinho, num horário ou intervalo que você escolhe, direto na internet — sem precisar do seu computador ligado.">rotina</span> é diferente de um lembrete agendado no seu computador: ela roda na própria internet, numa estrutura mantida por quem faz a IA — você não precisa deixar nada ligado. Pra configurar uma, você define: um nome; um prompt único (a instrução tem que vir completa, porque ninguém vai estar lá pra responder dúvidas durante a execução); qual modelo de IA usar; o repositório de onde a rotina vai puxar informação; as chaves de acesso que ela vai usar (coladas manualmente, já que essas chaves normalmente não viajam junto do resto do projeto por segurança); a cadência (no mínimo uma vez por hora); e o nível de acesso à internet — só sites confiáveis e verificados, qualquer site, ou uma lista específica escolhida por você.</p>
+      <p>Cada execução roda numa máquina temporária que é apagada depois, exceto por duas coisas que ficam salvas: qualquer mudança de código vira uma proposta de revisão pra você aprovar depois, e o histórico de execuções fica guardado. Regra prática: se algo só existe no seu computador (uma sessão salva no navegador, por exemplo) ou não está acessível de fora, a rotina simplesmente não consegue usar aquilo.</p>
+      <p>Um dono de pequeno negócio pode configurar uma rotina que manda, toda manhã, um lembrete dos compromissos do dia; uma coordenadora de RH pode configurar uma que revisa candidatos novos toda semana, sem precisar lembrar de fazer isso manualmente.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="ferramenta">
+      <h2><span class="n">05</span> Um exemplo real: briefing automático todo dia de manhã</h2>
+      <p>Uma automação bem desenhada segue a regra de usar sempre a ferramenta mais simples que resolve: um briefing diário, disparado às 6h, pode ser desenhado como um processo de passos fixos — pesquisar um assunto, escrever um resumo com IA, e enviar a mensagem pronta — em vez de deixar uma IA livre decidindo tudo sozinha a cada execução. O cuidado de segurança mais importante: travar no próprio código o destino da mensagem pra um único lugar privado específico, nunca um canal público — e testar isso de verdade antes de ativar a automação pra valer, pra nunca repetir o erro de uma mensagem indo parar no lugar errado.</p>
+      <div class="qsteps">
+        <p class="qsk">Passo a passo</p>
+        <ol>
+          <li><b>Defina o prompt</b> — uma instrução única e completa, porque ninguém vai estar lá pra responder dúvidas durante a execução.</li>
+          <li><b>Aponte o repositório e as chaves</b> — a rotina só enxerga o que está no repositório clonado ou colado nas variáveis de acesso do ambiente na nuvem.</li>
+          <li><b>Trave o destino</b> — no código de uma automação que envia mensagem, restrinja pra só um destino privado específico, nunca um canal público.</li>
+          <li><b>Escolha a cadência</b> — no mínimo uma vez por hora, e confira o painel de execuções depois de rodar pela primeira vez.</li>
+        </ol>
+      </div>
+      <p>Um professor pode receber, assim, um resumo diário de novidades da própria área, sem precisar procurar; uma consultora freelancer pode receber um briefing diário com possíveis clientes novos, pronto quando ela abre o dia de trabalho.</p>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="6" data-kind="ferramenta">
+      <h2><span class="n">06</span> Campainha ou checar a porta de novo?</h2>
+      <p>Existe uma segunda forma de automação, disparada por evento em vez de horário. A diferença é a mesma entre uma campainha e ficar checando a porta de 10 em 10 minutos: um <span class="gterm" tabindex="0" data-def="Aviso automático que um sistema manda pro outro só quando algo realmente acontece — diferente de ficar checando de tempos em tempos se algo mudou.">aviso automático entre sistemas</span> dispara só quando algo de fato acontece — por exemplo, alguém preenche um formulário — em vez de ficar checando em loop. Um exemplo real: um formulário simples de contato dispara, na hora em que é enviado, uma notificação já formatada pra você. Vale um ponto importante: essa automação específica não usa IA nenhuma de propósito — é só um modelo preenchendo espaços em branco, porque colocar IA ali só adicionaria custo e risco (como "corrigir" um erro de digitação da pessoa) sem nenhum ganho real.</p>
+      <p>Como bônus, existe um comando que expõe uma sessão ativa pro aplicativo de celular da mesma conta — útil pra continuar acompanhando ou até mandando novas instruções de longe, quando você precisa sair de casa mas quer manter o trabalho andando.</p>
+      <p>Um dono de pequeno negócio com um formulário de contato no site ganha com o aviso automático (sem IA, mais barato e mais confiável); uma contadora autônoma que sai pra visitar clientes pode usar o acesso pelo celular pra acompanhar uma automação sem precisar voltar ao computador.</p>
+      <div class="mobfig" data-mobfig="6"></div>
+      <button class="readbtn" data-read="s6">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="tarefa">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Decida: time ou delegação? Agenda ou evento?</h3>
+      <p class="pgoal">Meta: pegar uma tarefa repetitiva sua e decidir, por escrito, essas duas coisas. ~10 min.</p>
+      <p class="psafe">Nada aqui liga uma automação de verdade — é só um exercício de decisão no papel, sem mexer em nenhuma ferramenta real. Não gostou da resposta? Rabisque de novo.</p>
+      <p>Abaixo está um modelo pronto — como uma receita com espaços em branco. Você só preenche o que está marcado entre <b>&lt; &gt;</b>.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Tarefa que se repete no meu trabalho: &lt;descreva&gt;
+
+Pergunta 1 — time ou delegação?
+Essa tarefa precisa de várias perspectivas debatendo antes de decidir,
+ou só precisa que pedaços dela sejam feitos em paralelo, sem conversa entre si?
+Resposta: &lt;time / delegação&gt;
+
+Pergunta 2 — agenda ou evento?
+Essa tarefa deveria rodar sempre no mesmo horário (ex.: toda manhã),
+ou só quando algo específico acontece (ex.: alguém preenche um formulário)?
+Resposta: &lt;agenda / evento&gt;</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Escolha uma tarefa real sua que se repete toda semana e preencha as duas perguntas do modelo.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Releia sua resposta e confira se ela realmente bate com o que você faria de verdade, sem exagerar na complexidade.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de aplicar, numa tarefa real sua, a mesma pergunta que evita gastar tempo e tokens tentando fazer a ferramenta errada se comportar como a certa.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> sub-agentes reportam só pra sessão principal; agent team divide uma lista de tarefas compartilhada"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="45" cy="40" r="14" stroke="var(--ink-soft)" stroke-width="2"/>
+        <line x1="45" y1="54" x2="30" y2="90" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="45" y1="54" x2="45" y2="90" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="45" y1="54" x2="60" y2="90" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="16" y="92" width="28" height="20" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="31" y="92" width="28" height="20" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="46" y="92" width="28" height="20" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="10" y1="130" x2="210" y2="130" stroke="var(--line2)" stroke-width="1" stroke-dasharray="5 5"/>
+        <rect x="70" y="150" width="80" height="24" rx="5" stroke="var(--accent)" stroke-width="2"/>
+        <text x="110" y="166" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">lista de tarefas</text>
+        <circle cx="60" cy="150" r="10" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="160" cy="150" r="10" stroke="var(--accent)" stroke-width="2"/>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> personas diferentes atacando o mesmo relatório — pesquisa mais completa que uma perspectiva só"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="85" y="80" width="50" height="40" rx="5" stroke="var(--ink-soft)" stroke-width="2"/>
+        <circle cx="50" cy="40" r="12" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="170" cy="40" r="12" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="50" cy="160" r="12" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="170" cy="160" r="12" stroke="var(--accent)" stroke-width="2"/>
+        <line x1="58" y1="50" x2="92" y2="85" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="162" y1="50" x2="128" y2="85" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="58" y1="150" x2="92" y2="115" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="162" y1="150" x2="128" y2="115" stroke="var(--line2)" stroke-width="1.2"/>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> o mesmo pedido pode virar 2 coisas diferentes — o padrão erra pro lado mais simples"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="15" y="85" width="60" height="30" rx="6" stroke="var(--line2)" stroke-width="2"/>
+        <text x="45" y="104" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">"cria um time"</text>
+        <path d="M78 92 L140 55" stroke="var(--warm)" stroke-width="2"/>
+        <path d="M131 52 L141 55 L138 65" stroke="var(--warm)" stroke-width="2"/>
+        <text x="140" y="45" font-family="var(--mono)" font-size="7.5" fill="var(--warm)">padrão: sub-agentes</text>
+        <path d="M78 108 L140 145" stroke="var(--accent)" stroke-width="2.5"/>
+        <path d="M131 148 L141 145 L138 135" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="140" y="163" font-family="var(--mono)" font-size="7.5" fill="var(--accent)">explícito: team_create</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> uma rotina precisa de 5 peças pra rodar sozinha na nuvem"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="100" r="34" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="104" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">rotina</text>
+        <text x="45" y="35" font-family="var(--mono)" font-size="8" fill="var(--muted)">prompt</text>
+        <text x="150" y="35" font-family="var(--mono)" font-size="8" fill="var(--muted)">repositório</text>
+        <text x="20" y="110" font-family="var(--mono)" font-size="8" fill="var(--muted)">chaves</text>
+        <text x="170" y="110" font-family="var(--mono)" font-size="8" fill="var(--muted)">cadência</text>
+        <text x="80" y="175" font-family="var(--mono)" font-size="8" fill="var(--muted)">acesso de rede</text>
+        <line x1="65" y1="35" x2="90" y2="75" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="150" y1="40" x2="130" y2="75" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="45" y1="110" x2="78" y2="105" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="168" y1="110" x2="142" y2="105" stroke="var(--line2)" stroke-width="1.2"/>
+        <line x1="105" y1="170" x2="108" y2="132" stroke="var(--line2)" stroke-width="1.2"/>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> pesquisar → resumir → enviar, travado num único destino privado"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="10" y="85" width="50" height="30" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <text x="35" y="104" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">pesquisar</text>
+        <path d="M63 100 L83 100" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M76 94 L85 100 L76 106" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="86" y="85" width="50" height="30" rx="6" stroke="var(--ink-soft)" stroke-width="2"/>
+        <text x="111" y="104" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--muted)">resumir</text>
+        <path d="M139 100 L159 100" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M152 94 L161 100 L152 106" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="162" y="85" width="48" height="30" rx="6" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="186" y="104" text-anchor="middle" font-family="var(--mono)" font-size="8" fill="var(--accent)">enviar</text>
+        <rect x="172" y="130" width="28" height="24" rx="4" stroke="var(--warm)" stroke-width="2"/>
+        <path d="M178 130 L178 122 A8 8 0 0 1 194 122 L194 130" stroke="var(--warm)" stroke-width="2" fill="none"/>
+        <line x1="186" y1="115" x2="186" y2="130" stroke="var(--line2)" stroke-width="1.2" stroke-dasharray="3 3"/>
+      </svg></div>
+      <div class="fig" data-fig="6" data-cap="<b>Fig.</b> aviso automático dispara na hora certa; agenda fica checando de tempos em tempos"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="55" cy="90" r="30" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <path d="M55 75 L55 90 L67 98" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="55" y="140" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--muted)">agenda</text>
+        <path d="M150 60 Q150 45 165 45 Q180 45 180 60 Q180 75 165 90 L165 100" stroke="var(--accent)" stroke-width="2.5" fill="none"/>
+        <circle cx="165" cy="112" r="4" fill="var(--accent)"/>
+        <text x="165" y="140" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--accent)">aviso automático</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Um agent team custa bem mais tokens que sub-agentes comuns — use quando o debate entre perspectivas realmente compensa o preço.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Sub-agentes delegam e reportam só pra sessão principal; um agent team de verdade compartilha uma lista de tarefas e conversa entre si — e custa bem mais tokens, então use com moderação.</li>
+    <li>Rotinas rodam na nuvem sem o computador ligado, mas só enxergam o que está no repositório ou acessível de fora — nada que more só no seu computador.</li>
+    <li>Nem toda automação precisa de IA: quando a tarefa é sempre igual, um caminho fixo (agenda ou evento, sem IA no meio) é mais barato e mais confiável.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de aplicar, numa tarefa real sua, a diferença entre delegar e montar um time — e entre agendar e reagir a um evento.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: escolha a automação mais óbvia que você ainda faz manualmente toda semana e decida se ela pede agenda ou evento.</p>
+  <p class="na-hook">No próximo e último módulo, você aprende a manter suas conversas com a IA leves e baratas — e fecha o curso com um plano prático de próximos passos.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 9 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-9">
+[
+  {"front":"Você pediu 'cria um time de agentes' e recebeu 3 respostas paralelas que não conversam entre si. O que provavelmente aconteceu?","back":"A IA caiu no padrão de sub-agentes comuns em vez de montar um agent team de verdade — é preciso pedir explicitamente a função de time (não sub-agentes paralelos) e observar se existe uma lista de tarefas compartilhada."},
+  {"front":"Uma automação sua deveria rodar toda segunda-feira às 6h, sempre. Ela pede aviso automático por evento ou agenda?","back":"Agenda (horário fixo) — evento previsível não precisa esperar um gatilho externo, só um horário certo."},
+  {"front":"Um formulário de contato do seu site deveria notificar você assim que alguém preenche. Isso pede evento ou agenda?","back":"Evento (aviso automático) — só dispara quando algo acontece de fato, em vez de ficar checando de tempos em tempos."},
+  {"front":"Por que uma automação simples de notificação (formulário → aviso) não precisa de IA generativa no meio?","back":"Porque é só um modelo preenchendo espaços em branco — IA ali só adicionaria custo e risco (como 'corrigir' um erro de digitação) sem ganho real. Use sempre a solução mais simples que resolve."}
+]
+</script>
+
+<!-- COMPLETUDE aula-9 | tipo=FERRAMENTA | steps=6
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (6/6)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (6/6)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-9"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [N/A] teste-se-FUND     tipo=FERRAMENTA: item não se aplica (sem teste-se nesta aula)
+-->
