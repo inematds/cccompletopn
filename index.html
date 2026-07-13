@@ -1,0 +1,439 @@
+<!doctype html>
+<!-- SHELL formato-curso v5 — "Claude Code para Pessoas Normais" (INEMA · PT-BR · 40+ leigo).
+     Fase 1 do PLAN.md: só esqueleto (nav, tema, motor de progresso, roteamento, portão de
+     completude) — ZERO conteúdo de aula. Cada uma das 10 seções de módulo é um placeholder
+     vazio; ver content/CONTRATO-FRAGMENTO.md para o contrato de quem vai preencher.
+     Este arquivo é o corpo do futuro curso.html (montagem final = Fase 4, concatenação
+     determinística). Os caminhos "assets/..." abaixo já são relativos à raiz do projeto,
+     onde o curso.html final vai morar — não à pasta fragments/. -->
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="curso" content="ccpn:curso">
+<title>Claude Code para Pessoas Normais · INEMA.CLUB PRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aula.css">
+<script>(function(){try{var m=document.querySelector('meta[name=curso]');var CK=(m&&m.content)||'v5:curso';var s=JSON.parse(localStorage.getItem(CK));if(s&&s.prefs&&s.prefs.theme)document.documentElement.setAttribute('data-theme',s.prefs.theme);}catch(e){}})();</script>
+<!--
+  PROTOCOLO DE DESCOBERTA (formato-curso-v5/SKILL.md, Passo 0 — bloqueante, registrado como
+  metadado). Respondido pelo orquestrador em 2026-07-13; vale para os 10 módulos — todo agente
+  de conteúdo de módulo deve citar ≥2 destas profissões em CADA step (contrato §"exemplo por
+  profissão", 100% dos steps).
+  - Público específico: pessoas leigas em tecnologia, 40+ anos, "pessoas normais" no sentido do
+    curso original (Nate Herk) — profissionais de conhecimento em geral, não desenvolvedores.
+  - Profissões-alvo (≥2, banco de referência para os exemplos): contador(a) autônomo(a) ·
+    dono(a) de pequeno negócio/loja · coordenador(a) de RH · professor(a) · consultor(a)
+    freelancer.
+  - Familiaridade com tecnologia: baixa/nenhuma — usa e-mail, WhatsApp, planilha; nunca abriu
+    um terminal; zero conhecimento de programação (mesma premissa do curso original).
+  - Resultado prático esperado: sair usando Claude Code no próprio trabalho — automatizar
+    tarefas repetitivas, organizar informação e "construir seu Jarvis" pessoal — sem depender
+    de outra pessoa pra configurar nada.
+  - Tempo por sessão: sessões curtas (15–25min por aula/módulo), encaixáveis numa rotina de
+    trabalho cheia.
+-->
+<style>
+  /* Router + estilos da view da trilha (escopados sob #v-trilha). Idêntico ao contrato v5 —
+     tokens/cores/tipografia vêm de assets/aula.css e NÃO são redeclarados aqui. */
+  .view{display:none}.view.active{display:block}
+  .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
+  .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px}
+  .lnav a:hover{border-color:var(--accent);color:var(--ink)}
+  #v-trilha .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  #v-trilha .t-hero{position:relative;overflow:hidden;padding:20vh 0 8vh;border-bottom:1px solid var(--line)}
+  #v-trilha h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.4vw,72px);line-height:1;letter-spacing:-.025em;margin:0 0 22px}
+  #v-trilha h1 em{font-style:italic;color:var(--accent)}
+  #v-trilha .lead{font-family:var(--serif);font-size:clamp(19px,2.1vw,24px);line-height:1.5;color:var(--ink-soft);max-width:46ch;margin:0 0 30px}
+  #v-trilha section{padding:8vh 0}
+  #v-trilha .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  #v-trilha h2{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,38px);margin:0 0 28px}
+  #v-trilha .aulas{display:grid;gap:14px}
+  #v-trilha .au{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+  #v-trilha .au .num{font-family:var(--serif);font-size:30px;color:var(--accent);text-align:center}
+  #v-trilha .au h3{font-family:var(--serif);font-weight:500;font-size:21px;margin:0 0 5px}
+  #v-trilha .au p{margin:0;color:var(--muted);font-size:14.5px}
+  #v-trilha .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  #v-trilha .au .prog{position:static;margin-top:10px;height:5px;border-radius:99px;background:var(--line);overflow:hidden;max-width:220px;width:auto}
+  #v-trilha .au .prog i{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+  #v-trilha footer{max-width:1080px;margin:0 auto;padding:6vh clamp(24px,5vw,60px) 12vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-inner">
+  <span class="brand"><a class="mark" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a><a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a><a class="course" href="landing.html">Claude Code para Pessoas Normais</a></span>
+  <a class="back" href="#trilha" style="display:none">← trilha</a>
+  <button id="pill" class="pill" style="display:none">0 lido</button>
+  <button id="revbtn">revisar <span id="revn">0</span></button>
+  <button id="exbtn">exercícios</button>
+  <button id="jorbtn">jornada</button>
+  <button id="helpbtn" aria-label="Como funciona">?</button>
+  <button id="prefsbtn" aria-label="Preferências de leitura">Aa</button>
+  <button id="themebtn">tema: escuro</button>
+</div></div>
+
+<!-- ===== TRILHA (índice dos 10 módulos) ===== -->
+<section class="view" id="v-trilha">
+  <header class="t-hero"><div class="wrap">
+    <p class="kicker">Curso completo · 10 módulos</p>
+    <h1>Claude Code para <em>Pessoas Normais</em></h1>
+    <p class="lead">Um curso conduzido devagar, sem jargão, pra quem nunca abriu um terminal — você sai usando o Claude Code no seu trabalho de verdade, sem precisar de mais ninguém pra configurar nada.</p>
+  </div></header>
+  <section><div class="wrap">
+    <!-- statcards dinâmicos (AD-8) — o motor preenche "você já fez N/M · faltam ~Xmin" -->
+    <div class="statcards"></div>
+    <p class="eyebrow">Módulos</p>
+    <h2>Do início ao fim</h2>
+    <div class="aulas">
+      <a class="au on" data-aula="1" href="#aula-1">
+        <div class="num">1</div>
+        <div><h3>Fundamentos e mentalidade</h3><p>Entenda o que é o Claude Code de verdade e a virada de mentalidade que muda como você trabalha com IA no dia a dia.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="2" href="#aula-2">
+        <div class="num">2</div>
+        <div><h3>Primeiros passos com Claude Code</h3><p>Instale, abra e dê os primeiros comandos — sem travar, mesmo sem nunca ter usado nada parecido com um terminal.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="3" href="#aula-3">
+        <div class="num">3</div>
+        <div><h3>Estruturação de projetos</h3><p>Organize arquivos e pastas do jeito que o Claude Code entende, pra trabalhar com ele em qualquer projeto real seu.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="4" href="#aula-4">
+        <div class="num">4</div>
+        <div><h3>Construindo um sistema operacional de IA</h3><p>Monte as regras e rotinas que transformam o Claude Code num assistente que já sabe como você trabalha.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="5" href="#aula-5">
+        <div class="num">5</div>
+        <div><h3>Memória e segundo cérebro</h3><p>Ensine o Claude Code a lembrar do seu contexto entre conversas, em vez de recomeçar do zero toda vez.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="6" href="#aula-6">
+        <div class="num">6</div>
+        <div><h3>Subagentes</h3><p>Divida tarefas grandes entre vários ajudantes especializados de IA que trabalham em paralelo por você.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="7" href="#aula-7">
+        <div class="num">7</div>
+        <div><h3>Construção e publicação de projetos</h3><p>Saia de uma ideia solta e chegue a um projeto pronto, publicado e funcionando, do começo ao fim.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="8" href="#aula-8">
+        <div class="num">8</div>
+        <div><h3>Segundo cérebro avançado</h3><p>Aprofunde seu sistema de memória e contexto pra decisões mais consistentes com menos esforço repetido.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="9" href="#aula-9">
+        <div class="num">9</div>
+        <div><h3>Sistemas multiagentes e automações</h3><p>Coloque vários agentes de IA trabalhando juntos em automações que rodam sozinhas, sem você precisar estar lá.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="10" href="#aula-10">
+        <div class="num">10</div>
+        <div><h3>Otimização e encerramento</h3><p>Ajuste e revise o que você construiu, com um plano claro pra continuar sozinho depois do curso.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+    </div>
+  </div></section>
+  <footer><div class="wrap">Claude Code para Pessoas Normais · INEMA.CLUB PRO</div></footer>
+</section>
+
+<!-- ===== MÓDULO 1 — Fundamentos e mentalidade =====
+     Wrapper correto pro roteamento (#aula-1 → #v-aula-1 via data-aula) e pra camada de
+     retenção (tudo que o motor injeta automaticamente busca o ancestral ".view[data-aula]").
+     data-tempo é OBRIGATÓRIO no contrato v5 mas o VALOR depende do conteúdo (contagem de
+     palavras) — troque "__TEMPO__" pelo valor real (ex.: "18min") ao finalizar o módulo. -->
+<section class="view" id="v-aula-1" data-aula="1" data-tempo="22min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Claude Code para Pessoas Normais · Módulo 1</p>
+    <h1>O motor, o carro<br><em>e você no volante</em></h1>
+    <p class="promise">Ao fim deste módulo você consegue explicar, com suas próprias palavras, o que o Claude Code faz de diferente de um chat comum, dar contexto real pra uma IA em vez de só pedir algo pronto — e reconhecer, numa tarefa sua, se ela pede IA ou só um passo a passo fixo — sem precisar de mais nada além do que já tem hoje.</p>
+    <p class="why">Você já usou algum chat de IA, mas na hora de aplicar no seu trabalho de verdade trava: não sabe se aquilo aguenta uma tarefa séria, tem medo de gastar tempo pra receber uma resposta genérica, e sente que essas ferramentas foram feitas pensando em programador — não em quem só quer resolver o trabalho de terça-feira.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <line x1="20" y1="205" x2="280" y2="205" stroke="var(--line2)" stroke-width="1.5"/>
+    <path d="M45 175 Q45 150 75 148 L100 148 Q112 128 140 128 L185 128 Q205 128 212 148 L235 150 Q255 152 255 172 L255 178 L45 178 Z" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="90" cy="178" r="17" stroke="var(--accent)" stroke-width="3"/>
+    <circle cx="90" cy="178" r="5" fill="var(--accent)"/>
+    <circle cx="212" cy="178" r="17" stroke="var(--accent)" stroke-width="3"/>
+    <circle cx="212" cy="178" r="5" fill="var(--accent)"/>
+    <path d="M108 148 L118 130 L172 130 L182 148 Z" stroke="var(--ink-soft)" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="145" y1="130" x2="145" y2="148" stroke="var(--ink-soft)" stroke-width="1.5"/>
+    <circle cx="150" cy="160" r="10" stroke="var(--warm)" stroke-width="2"/>
+    <circle cx="150" cy="160" r="2.5" fill="var(--warm)"/>
+    <line x1="0" y1="215" x2="60" y2="215" stroke="var(--line2)" stroke-width="2" stroke-dasharray="10 8"/>
+    <line x1="240" y1="215" x2="300" y2="215" stroke="var(--line2)" stroke-width="2" stroke-dasharray="10 8"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="fundamento">
+      <h2><span class="n">01</span> Claude Code não é um chat — é uma IA com mãos</h2>
+      <p>A Anthropic (empresa que faz a Claude) vende três produtos com o mesmo nome de família. O <b>Claude Chat</b> é um chatbot simples, de site ou celular — você pergunta, ele responde, e fica nisso. O <b>Claude Cowork</b> é uma camada intermediária, uma interface simples pra automações já prontas. E o <b>Claude Code</b> é o mais poderoso dos três: apesar do nome, você não precisa saber programar pra usar. A diferença central é que ele tem <span class="gterm" tabindex="0" data-def="A camada que dá à IA acesso a ferramentas de verdade — arquivos do computador, internet, outros aplicativos — em vez de só responder o que você digitou na tela.">harness</span>: acesso a ferramentas de verdade, não só à conversa.</p>
+      <p>Pensa na sua contadora autônoma organizando notas fiscais espalhadas em pastas do computador, ou na coordenadora de RH cruzando currículos com uma planilha de vagas — nos dois casos, um chat comum não enxerga esses arquivos. O Claude Code enxerga, abre, lê e, quando você autoriza, edita.</p>
+      <div class="qbefore-after">
+        <div class="qba-col qba-before"><p class="qba-lbl">Antes</p><p class="qba-txt">Você abre um chat de IA, copia e cola um trecho, ele responde só com o que está na tela — não vê seu arquivo, sua planilha ou seu e-mail.</p></div>
+        <div class="qba-col qba-depois"><p class="qba-lbl">Depois</p><p class="qba-txt">Com o Claude Code, a mesma IA abre os arquivos do seu computador e, quando você autoriza, mexe em serviços que você já usa — não só responde o que você colou.</p></div>
+        <p class="qba-saldo"><b>Saldo:</b> menos copia-e-cola manual, mais tarefa resolvida de ponta a ponta — sem você virar intermediário entre o arquivo e a IA.</p>
+      </div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="fundamento">
+      <h2><span class="n">02</span> O motor, o carro e o motorista</h2>
+      <p>Existe uma forma simples de entender qualquer ferramenta de IA: pensa em três camadas, uma dentro da outra. No centro está o <span class="gterm" tabindex="0" data-def="O 'cérebro' que gera as respostas — no curso, chamado de Opus, Sonnet, Haiku ou Fable. Pode ser trocado por um mais novo sem mudar o resto.">modelo</span>, o motor que faz o raciocínio. Em volta dele está o Claude Code, o carro que usa esse motor pra rodar. E no volante está você — seu julgamento, seus dados, o contexto do seu negócio.</p>
+      <p>O motor sozinho não anda a lugar nenhum: precisa do carro pra virar movimento, e precisa de alguém dirigindo pra ir a um lugar que faça sentido. Modelo e harness mudam com o tempo — hoje é um, daqui a um ano pode ser outro, mais rápido ou mais barato. A parte que não muda, e que é a mais importante das três, é você.</p>
+      <p>Pro dono de uma pequena loja, o motor pode ser trocado amanhã sem que ele precise aprender nada disso na hora; já pra uma consultora freelancer, o que nunca muda é o contexto que ela dá — sem isso, o motor mais caro do mundo ainda erra o alvo.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="fundamento">
+      <h2><span class="n">03</span> Pare de caçar o prompt perfeito</h2>
+      <p>Por muito tempo, a dica número um sobre IA era "escreva melhor o seu pedido" — dar um papel pra IA assumir, instruções claras, um exemplo do que você quer. Isso ainda ajuda, mas está ficando menos decisivo, porque os próprios modelos melhoram sozinhos nisso. O que virou decisivo é outra coisa: <span class="gterm" tabindex="0" data-def="A prática de preencher o que a IA sabe sobre você e seu trabalho antes de pedir algo — não só escrever melhor a pergunta.">engenharia de contexto</span>, o que a IA sabe sobre você antes mesmo de você perguntar.</p>
+      <div class="qanchor"><p>Prompt é como você pergunta. Contexto é o que a IA já sabe sobre você.</p></div>
+      <p>Um estagiário novo não produz nada bom no primeiro dia se ninguém explicou o que a empresa faz, quem é quem, o que já está em andamento — mesmo sendo esforçado e inteligente. Uma IA sem contexto é exatamente isso: um estagiário inteligente adivinhando. E contexto é dado que só você tem — se todo mundo usa o mesmo modelo com o mesmo pedido genérico, todo mundo recebe a mesma resposta genérica.</p>
+      <p>Um professor que só escreve "faça um plano de aula sobre frações" recebe algo genérico; se ele contar que dá aula pro 6º ano, com dificuldade em multiplicação, e colar o plano da semana passada, a resposta já nasce pronta pra usar — a mesma diferença vale pra uma contadora autônoma pedindo uma cobrança educada pra um cliente específico.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="fundamento">
+      <h2><span class="n">04</span> Ninguém acerta de primeira — e tudo bem</h2>
+      <p>Pensa em ensinar uma criança a andar de bicicleta: você não solta e sai andando. Segura o banco, corrige o peso, solta um pouco, segura de novo. Trabalhar com IA é parecido — <span class="gterm" tabindex="0" data-def="Repetir e ajustar aos poucos até o resultado ficar bom, em vez de esperar acertar tudo já na primeira tentativa.">iteração</span> é a regra, não a exceção. Depois de "ensinar" o décimo quinto assistente ou automação, o processo de ajustar já virou quase ciência — mas todo mundo começa cambaleando.</p>
+      <p>Isso explica um padrão comum: no papel, aprender algo novo parece uma linha reta de progresso. Na prática é uma curva que afunda antes de disparar — você fica mais devagar por um tempo, antes de ficar bem mais rápido depois. É exatamente nesse vale que a maioria desiste, justo antes de a virada valer a pena.</p>
+      <p>Uma coordenadora de RH que testa um processo novo de triagem de currículos com IA não acerta o filtro ideal na primeira tentativa — ajusta, olha os erros, ajusta de novo. O mesmo vale pro dono de um pequeno negócio testando uma resposta automática pra clientes: a segunda versão já fica bem melhor que a primeira, e a quinta, melhor ainda.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="fundamento">
+      <h2><span class="n">05</span> Vending machine ou slot machine?</h2>
+      <p>A diferença entre um chatbot comum e um <span class="gterm" tabindex="0" data-def="Um sistema que consegue disparar uma tarefa sozinho, sem esperar você pedir de novo a cada passo — diferente de um chat, que só responde quando você fala.">agente de IA</span> é essa: o chatbot só age quando você manda; o agente dispara sozinho quando algo acontece — é isso que este curso chama de construir o seu próprio "Jarvis". Mas antes de sair automatizando tudo, vale uma pergunta simples: essa tarefa é uma máquina de vendas ou uma caça-níqueis? Máquina de vendas é determinística — mesma moeda, mesmo produto, sempre. Caça-níqueis não é: cada vez que você puxa a alavanca, o resultado varia. Toda vez que você fala com uma IA generativa, você está, de certo modo, apostando numa caça-níqueis — o resultado tem variação.</p>
+      <p>A regra prática: use IA quando a tarefa precisa mesmo de raciocínio e varia de caso a caso; use um passo a passo fixo quando o processo é sempre igual — é mais barato, mais rápido e quase nunca quebra. Antes de automatizar, pergunte duas coisas: preciso ser eu a disparar isso, ou o sistema pode disparar sozinho? E esse passo precisa mesmo de IA, ou um jeito simples e fixo resolve mais barato?</p>
+      <p>Uma consultora freelancer que manda sempre o mesmo modelo de proposta, só trocando nome e valor, não precisa de IA generativa toda vez — um modelo fixo resolve mais rápido. Já quando um professor precisa adaptar uma explicação difícil pro jeito de aprender de um aluno específico, aí entra IA de verdade, porque cada caso pede um julgamento diferente.</p>
+      <div class="quiz" data-answer="b">
+        <p class="qk">Teste-se</p>
+        <p class="q">Você manda o mesmo aviso de cobrança pra clientes atrasados todo mês, só trocando nome e valor. Isso é tarefa pra...</p>
+        <button class="opt" data-k="a">IA generativa decidir o texto do zero a cada vez</button>
+        <button class="opt" data-k="b" data-fb="Mesma entrada, mesmo resultado esperado — é vending machine: um modelo fixo (ou planilha) resolve mais rápido, mais barato, e quase nunca quebra.">um modelo fixo, tipo carta-modelo com espaços pra preencher</button>
+        <button class="opt" data-k="c">nenhuma automação — isso precisa ser sempre manual</button>
+        <p class="qfb"></p>
+      </div>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="6" data-kind="fundamento">
+      <h2><span class="n">06</span> O que você publica leva sua assinatura</h2>
+      <p>Quanto melhor a IA fica, mais fácil é confiar cegamente na primeira resposta — essa é a armadilha. Existe uma piada que resume bem: um lado usa IA pra transformar um bullet point num e-mail formal; o outro lado usa IA pra transformar esse mesmo e-mail de volta num bullet point. Ninguém lê o meio do caminho. Um sinal de alerta comum é o texto cheio de travessões longos sem necessidade — quem nunca escreveu assim na vida percebe na hora quando um texto não foi revisado por ninguém.</p>
+      <p>Repertório se treina: estude os melhores exemplos da sua área, guarde o que funciona, pergunte à própria IA "por que isso ficou bom?", e toda vez que corrigir algo, alimente essa correção de volta nas suas instruções. A frase que resume isso: repertório é decidir o que merece levar o seu nome — o que você publica com ajuda de IA carrega sua assinatura, pro bem e pro mal.</p>
+      <p>Esse mesmo repertório vira proteção de carreira quando você embala a sua expertise de mais de um jeito — não em assuntos diferentes, que se dispersam e quebram, mas na mesma especialidade, com formatos diferentes: curso, boletim por e-mail, consultoria avulsa. A mesma expertise de uma contadora autônoma pode virar um curso curto sobre organização fiscal, um boletim mensal e um serviço de consultoria avulsa, sem trocar de assunto; o dono de um pequeno negócio que já domina controle de estoque pode fazer o mesmo, embalando o que já sabe de formas diferentes.</p>
+      <p>Um cuidado: se você tem contrato de trabalho ou cláusula de exclusividade, confira antes, e seja transparente com quem te emprega. E compartilhar o que você está aprendendo, mesmo aos poucos, é o que te torna encontrável — inclusive quando alguém pesquisa sobre o assunto usando a própria IA.</p>
+      <div class="mobfig" data-mobfig="6"></div>
+      <button class="readbtn" data-read="s6">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="prompt">
+      <p class="pk">Pratique agora <span class="pcount">0/2 feito</span></p>
+      <h3 class="ph">Dê pra uma IA o mesmo onboarding que você daria a um estagiário novo</h3>
+      <p class="pgoal">Meta: escrever um bloco de contexto real seu e comparar a resposta com e sem ele. ~10 min.</p>
+      <p class="psafe">Nada aqui é publicado ou enviado a ninguém — é só um teste dentro do chat de IA que você já usa. Não gostou do resultado? Apague a conversa e comece de novo.</p>
+      <p>Abaixo está um modelo pronto — como uma receita com espaços em branco. Você só preenche o que está marcado entre <b>&lt; &gt;</b>, o resto já está pronto pra colar.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Contexto sobre mim:
+- Profissão: &lt;sua profissão, ex.: contadora autônoma&gt;
+- O que eu preciso resolver: &lt;a tarefa real desta semana&gt;
+- O que já tentei ou o que costuma funcionar: &lt;um exemplo real seu, se tiver&gt;
+
+Pedido: &lt;a tarefa em si, ex.: "escreva uma resposta educada mas firme pra um cliente atrasado"&gt;</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Copie o modelo acima e preencha as 4 linhas com uma tarefa real sua desta semana.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Cole num chat de IA que você já usa e compare com o que sairia se você tivesse só pedido a tarefa, sem o contexto.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de fazer, na prática, a diferença entre pedir e dar contexto — a mesma mudança que sustenta o resto do curso.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> três produtos, três níveis de acesso — só o Code enxerga seus arquivos e outros aplicativos"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="30" y="40" width="90" height="26" rx="8" stroke="var(--line2)" stroke-width="2"/>
+        <text x="75" y="57" text-anchor="middle" font-family="var(--mono)" font-size="11" fill="var(--muted)">Chat</text>
+        <rect x="30" y="87" width="120" height="26" rx="8" stroke="var(--line2)" stroke-width="2"/>
+        <text x="90" y="104" text-anchor="middle" font-family="var(--mono)" font-size="11" fill="var(--muted)">Cowork</text>
+        <rect x="30" y="134" width="160" height="30" rx="8" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="110" y="153" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="var(--accent)">Code</text>
+        <circle cx="200" cy="140" r="4" fill="var(--accent)"/>
+        <circle cx="200" cy="150" r="4" fill="var(--accent)"/>
+        <circle cx="200" cy="160" r="4" fill="var(--accent)"/>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> o motor (modelo) fica dentro do carro (harness) — e você é quem dirige os dois"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="110" cy="100" r="80" stroke="var(--line2)" stroke-width="2"/>
+        <circle cx="110" cy="100" r="52" stroke="var(--ink-soft)" stroke-width="2"/>
+        <circle cx="110" cy="100" r="24" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="110" cy="100" r="5" fill="var(--accent)"/>
+        <text x="110" y="30" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--muted)">você</text>
+        <text x="110" y="58" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--muted)">harness</text>
+        <text x="110" y="84" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--accent)">modelo</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> mesmo pedido, resultado diferente — o que muda é o contexto que entra antes"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <text x="10" y="52" font-family="var(--mono)" font-size="10" fill="var(--muted)">só prompt</text>
+        <line x1="10" y1="70" x2="120" y2="70" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M120 70 L112 65 M120 70 L112 75" stroke="var(--line2)" stroke-width="2"/>
+        <rect x="130" y="56" width="34" height="28" rx="6" stroke="var(--line2)" stroke-width="2"/>
+        <text x="10" y="122" font-family="var(--mono)" font-size="10" fill="var(--accent)">prompt + contexto</text>
+        <line x1="10" y1="145" x2="120" y2="145" stroke="var(--accent)" stroke-width="3.5"/>
+        <path d="M120 145 L110 138 M120 145 L110 152" stroke="var(--accent)" stroke-width="3.5"/>
+        <rect x="130" y="128" width="46" height="36" rx="8" stroke="var(--accent)" stroke-width="3"/>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> o vale antes da virada — quase todo aprendizado novo passa por uma queda antes de disparar"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <line x1="20" y1="170" x2="200" y2="170" stroke="var(--line2)" stroke-width="1.5"/>
+        <path d="M20 130 C 60 150, 80 175, 100 165 C 130 150, 150 70, 200 40" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="20" cy="130" r="4" fill="var(--ink-soft)"/>
+        <text x="20" y="118" font-family="var(--mono)" font-size="9.5" fill="var(--muted)">começo</text>
+        <circle cx="100" cy="165" r="4" fill="var(--warm)"/>
+        <text x="80" y="188" font-family="var(--mono)" font-size="9.5" fill="var(--warm)">vale</text>
+        <circle cx="200" cy="40" r="4" fill="var(--accent)"/>
+        <text x="163" y="28" font-family="var(--mono)" font-size="9.5" fill="var(--accent)">ganho</text>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> tarefa sempre igual pede máquina fixa; tarefa que varia pede IA"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="24" y="46" width="66" height="108" rx="8" stroke="var(--ink-soft)" stroke-width="2.5"/>
+        <line x1="24" y1="80" x2="90" y2="80" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="45" y1="46" x2="45" y2="80" stroke="var(--line2)" stroke-width="1.5"/>
+        <line x1="66" y1="46" x2="66" y2="80" stroke="var(--line2)" stroke-width="1.5"/>
+        <rect x="34" y="112" width="46" height="24" rx="4" stroke="var(--line2)" stroke-width="1.5"/>
+        <text x="57" y="170" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--muted)">fixo</text>
+        <text x="138" y="30" font-family="var(--mono)" font-size="12" fill="var(--faint)">ou</text>
+        <circle cx="163" cy="100" r="46" stroke="var(--accent)" stroke-width="2.5"/>
+        <circle cx="147" cy="92" r="6" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="163" cy="108" r="6" stroke="var(--accent)" stroke-width="2"/>
+        <circle cx="180" cy="92" r="6" stroke="var(--accent)" stroke-width="2"/>
+        <text x="163" y="170" text-anchor="middle" font-family="var(--mono)" font-size="9.5" fill="var(--accent)">varia</text>
+      </svg></div>
+      <div class="fig" data-fig="6" data-cap="<b>Fig.</b> uma especialidade, embalagens diferentes — curso, boletim, consultoria, saindo da mesma raiz"><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="30" cy="100" r="14" stroke="var(--accent)" stroke-width="2.5"/>
+        <text x="30" y="132" text-anchor="middle" font-family="var(--mono)" font-size="8.5" fill="var(--accent)">expertise</text>
+        <path d="M44 100 L90 40" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M44 100 L90 80" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M44 100 L90 120" stroke="var(--line2)" stroke-width="2"/>
+        <path d="M44 100 L90 160" stroke="var(--line2)" stroke-width="2"/>
+        <circle cx="100" cy="40" r="8" stroke="var(--ink-soft)" stroke-width="2"/><text x="112" y="44" font-family="var(--mono)" font-size="9" fill="var(--muted)">curso</text>
+        <circle cx="100" cy="80" r="8" stroke="var(--ink-soft)" stroke-width="2"/><text x="112" y="84" font-family="var(--mono)" font-size="9" fill="var(--muted)">boletim</text>
+        <circle cx="100" cy="120" r="8" stroke="var(--ink-soft)" stroke-width="2"/><text x="112" y="124" font-family="var(--mono)" font-size="9" fill="var(--muted)">consultoria</text>
+        <circle cx="100" cy="160" r="8" stroke="var(--ink-soft)" stroke-width="2"/><text x="112" y="164" font-family="var(--mono)" font-size="9" fill="var(--muted)">microsaas</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho desta aula pra virar um cartão de revisão automático — funciona em qualquer step.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Claude Code é o carro que usa o motor (o modelo) — mas quem decide pra onde ir é você, o motorista.</li>
+    <li>O que muda o resultado não é escrever um pedido perfeito, é dar contexto real: quem você é, o que já tentou, o que precisa agora.</li>
+    <li>Ninguém acerta de primeira — e tudo bem: repertório e ritmo se ganham corrigindo aos poucos, do jeito que qualquer habilidade nova se aprende.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de identificar a diferença entre pedir e dar contexto — a base de tudo que vem depois neste curso.</p>
+  <p class="na-action">Nos próximos 15 minutos, no seu trabalho de verdade: escolha uma tarefa que se repete toda semana e decida se ela é vending machine (um passo a passo fixo resolve) ou slot machine (precisa de IA de verdade).</p>
+  <p class="na-hook">No próximo módulo, você coloca o Claude Code pra funcionar no seu computador e dá os primeiros comandos — sem travar, mesmo sem nunca ter aberto nada parecido com um terminal.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#trilha">concluir ✓ →</a></nav>
+<footer>Módulo 1 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-1">
+[
+  {"front":"Se o modelo (o motor) mudar de versão amanhã, o que muda de verdade no seu jeito de trabalhar com IA?","back":"Pouca coisa — modelo e harness são peças trocáveis. O que sustenta o resultado é o contexto que só você, no volante, sabe dar — isso não muda com a versão."},
+  {"front":"Você recebe uma tarefa repetitiva, sempre com a mesma resposta esperada. Usa IA generativa ou um passo a passo fixo?","back":"Um passo a passo fixo (vending machine) — é mais barato, mais rápido e quase nunca quebra. Guarde a IA pra quando a tarefa precisa de julgamento que varia de caso a caso."},
+  {"front":"Qual a diferença entre engenharia de prompt e engenharia de contexto?","back":"Prompt é como você pergunta; contexto é o que a IA já sabe sobre você e seu trabalho antes mesmo de você perguntar."},
+  {"front":"Você tentou usar IA uma vez, o resultado ficou ruim e você desistiu na primeira tentativa. O que provavelmente faltou?","back":"Iteração — quase ninguém acerta de primeira — e possivelmente contexto: a IA agiu como um estagiário sem nenhum onboarding."},
+  {"front":"Antes de automatizar uma tarefa com IA, quais duas perguntas você deveria se fazer?","back":"Preciso ser eu a disparar isso, ou o sistema pode disparar sozinho? E esse passo precisa mesmo de IA, ou um jeito simples e fixo resolve mais barato?"}
+]
+</script>
+
+<!-- COMPLETUDE aula-1 | tipo=FUNDAMENTO | steps=6
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (6/6)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (6/6)
+  [OK] practice           .practice[data-mode] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com tempo declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-1"> presente (1)
+  [OK] anti-duplicacao    nenhum cartão repete ≥6 palavras seguidas do recap; cartões são pergunta/decisão/contraste/diagnóstico/aplicação, nunca afirmação
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: 1 quiz data-fb presente (step 5, data-answer="b")
+-->
+
+</section>
+
+<!-- ===== MÓDULO 2 — Primeiros passos com Claude Code ===== -->
+<section class="view" id="v-aula-2" data-aula="2" data-tempo="__TEMPO__">
+<!-- MODULO-02-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 3 — Estruturação de projetos ===== -->
+<section class="view" id="v-aula-3" data-aula="3" data-tempo="__TEMPO__">
+<!-- MODULO-03-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 4 — Construindo um sistema operacional de IA ===== -->
+<section class="view" id="v-aula-4" data-aula="4" data-tempo="__TEMPO__">
+<!-- MODULO-04-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 5 — Memória e segundo cérebro ===== -->
+<section class="view" id="v-aula-5" data-aula="5" data-tempo="__TEMPO__">
+<!-- MODULO-05-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 6 — Subagentes ===== -->
+<section class="view" id="v-aula-6" data-aula="6" data-tempo="__TEMPO__">
+<!-- MODULO-06-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 7 — Construção e publicação de projetos ===== -->
+<section class="view" id="v-aula-7" data-aula="7" data-tempo="__TEMPO__">
+<!-- MODULO-07-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 8 — Segundo cérebro avançado ===== -->
+<section class="view" id="v-aula-8" data-aula="8" data-tempo="__TEMPO__">
+<!-- MODULO-08-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 9 — Sistemas multiagentes e automações ===== -->
+<section class="view" id="v-aula-9" data-aula="9" data-tempo="__TEMPO__">
+<!-- MODULO-09-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 10 — Otimização e encerramento =====
+     ATENÇÃO (patch de motor, ver assets/curso.js): id/data-aula usam "10" sem zero à
+     esquerda — é o único módulo que exercita o patch do roteador (regex aceita 1–2 dígitos)
+     e do sort numérico de KEYS. Não copiar o padrão "0" aqui. -->
+<section class="view" id="v-aula-10" data-aula="10" data-tempo="__TEMPO__">
+<!-- MODULO-10-CONTEUDO-AQUI -->
+</section>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>
