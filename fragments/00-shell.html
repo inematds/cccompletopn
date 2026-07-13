@@ -1,0 +1,204 @@
+<!doctype html>
+<!-- SHELL formato-curso v5 — "Claude Code para Pessoas Normais" (INEMA · PT-BR · 40+ leigo).
+     Fase 1 do PLAN.md: só esqueleto (nav, tema, motor de progresso, roteamento, portão de
+     completude) — ZERO conteúdo de aula. Cada uma das 10 seções de módulo é um placeholder
+     vazio; ver content/CONTRATO-FRAGMENTO.md para o contrato de quem vai preencher.
+     Este arquivo é o corpo do futuro curso.html (montagem final = Fase 4, concatenação
+     determinística). Os caminhos "assets/..." abaixo já são relativos à raiz do projeto,
+     onde o curso.html final vai morar — não à pasta fragments/. -->
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="curso" content="ccpn:curso">
+<title>Claude Code para Pessoas Normais · INEMA.CLUB PRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aula.css">
+<script>(function(){try{var m=document.querySelector('meta[name=curso]');var CK=(m&&m.content)||'v5:curso';var s=JSON.parse(localStorage.getItem(CK));if(s&&s.prefs&&s.prefs.theme)document.documentElement.setAttribute('data-theme',s.prefs.theme);}catch(e){}})();</script>
+<!--
+  PROTOCOLO DE DESCOBERTA (formato-curso-v5/SKILL.md, Passo 0 — bloqueante, registrado como
+  metadado). Respondido pelo orquestrador em 2026-07-13; vale para os 10 módulos — todo agente
+  de conteúdo de módulo deve citar ≥2 destas profissões em CADA step (contrato §"exemplo por
+  profissão", 100% dos steps).
+  - Público específico: pessoas leigas em tecnologia, 40+ anos, "pessoas normais" no sentido do
+    curso original (Nate Herk) — profissionais de conhecimento em geral, não desenvolvedores.
+  - Profissões-alvo (≥2, banco de referência para os exemplos): contador(a) autônomo(a) ·
+    dono(a) de pequeno negócio/loja · coordenador(a) de RH · professor(a) · consultor(a)
+    freelancer.
+  - Familiaridade com tecnologia: baixa/nenhuma — usa e-mail, WhatsApp, planilha; nunca abriu
+    um terminal; zero conhecimento de programação (mesma premissa do curso original).
+  - Resultado prático esperado: sair usando Claude Code no próprio trabalho — automatizar
+    tarefas repetitivas, organizar informação e "construir seu Jarvis" pessoal — sem depender
+    de outra pessoa pra configurar nada.
+  - Tempo por sessão: sessões curtas (15–25min por aula/módulo), encaixáveis numa rotina de
+    trabalho cheia.
+-->
+<style>
+  /* Router + estilos da view da trilha (escopados sob #v-trilha). Idêntico ao contrato v5 —
+     tokens/cores/tipografia vêm de assets/aula.css e NÃO são redeclarados aqui. */
+  .view{display:none}.view.active{display:block}
+  .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
+  .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px}
+  .lnav a:hover{border-color:var(--accent);color:var(--ink)}
+  #v-trilha .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  #v-trilha .t-hero{position:relative;overflow:hidden;padding:20vh 0 8vh;border-bottom:1px solid var(--line)}
+  #v-trilha h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.4vw,72px);line-height:1;letter-spacing:-.025em;margin:0 0 22px}
+  #v-trilha h1 em{font-style:italic;color:var(--accent)}
+  #v-trilha .lead{font-family:var(--serif);font-size:clamp(19px,2.1vw,24px);line-height:1.5;color:var(--ink-soft);max-width:46ch;margin:0 0 30px}
+  #v-trilha section{padding:8vh 0}
+  #v-trilha .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  #v-trilha h2{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,38px);margin:0 0 28px}
+  #v-trilha .aulas{display:grid;gap:14px}
+  #v-trilha .au{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+  #v-trilha .au .num{font-family:var(--serif);font-size:30px;color:var(--accent);text-align:center}
+  #v-trilha .au h3{font-family:var(--serif);font-weight:500;font-size:21px;margin:0 0 5px}
+  #v-trilha .au p{margin:0;color:var(--muted);font-size:14.5px}
+  #v-trilha .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  #v-trilha .au .prog{position:static;margin-top:10px;height:5px;border-radius:99px;background:var(--line);overflow:hidden;max-width:220px;width:auto}
+  #v-trilha .au .prog i{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+  #v-trilha footer{max-width:1080px;margin:0 auto;padding:6vh clamp(24px,5vw,60px) 12vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-inner">
+  <span class="brand"><a class="mark" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a><a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a><a class="course" href="landing.html">Claude Code para Pessoas Normais</a></span>
+  <a class="back" href="#trilha" style="display:none">← trilha</a>
+  <button id="pill" class="pill" style="display:none">0 lido</button>
+  <button id="revbtn">revisar <span id="revn">0</span></button>
+  <button id="exbtn">exercícios</button>
+  <button id="jorbtn">jornada</button>
+  <button id="helpbtn" aria-label="Como funciona">?</button>
+  <button id="prefsbtn" aria-label="Preferências de leitura">Aa</button>
+  <button id="themebtn">tema: escuro</button>
+</div></div>
+
+<!-- ===== TRILHA (índice dos 10 módulos) ===== -->
+<section class="view" id="v-trilha">
+  <header class="t-hero"><div class="wrap">
+    <p class="kicker">Curso completo · 10 módulos</p>
+    <h1>Claude Code para <em>Pessoas Normais</em></h1>
+    <p class="lead">Um curso conduzido devagar, sem jargão, pra quem nunca abriu um terminal — você sai usando o Claude Code no seu trabalho de verdade, sem precisar de mais ninguém pra configurar nada.</p>
+  </div></header>
+  <section><div class="wrap">
+    <!-- statcards dinâmicos (AD-8) — o motor preenche "você já fez N/M · faltam ~Xmin" -->
+    <div class="statcards"></div>
+    <p class="eyebrow">Módulos</p>
+    <h2>Do início ao fim</h2>
+    <div class="aulas">
+      <a class="au on" data-aula="1" href="#aula-1">
+        <div class="num">1</div>
+        <div><h3>Fundamentos e mentalidade</h3><p>Entenda o que é o Claude Code de verdade e a virada de mentalidade que muda como você trabalha com IA no dia a dia.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="2" href="#aula-2">
+        <div class="num">2</div>
+        <div><h3>Primeiros passos com Claude Code</h3><p>Instale, abra e dê os primeiros comandos — sem travar, mesmo sem nunca ter usado nada parecido com um terminal.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="3" href="#aula-3">
+        <div class="num">3</div>
+        <div><h3>Estruturação de projetos</h3><p>Organize arquivos e pastas do jeito que o Claude Code entende, pra trabalhar com ele em qualquer projeto real seu.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="4" href="#aula-4">
+        <div class="num">4</div>
+        <div><h3>Construindo um sistema operacional de IA</h3><p>Monte as regras e rotinas que transformam o Claude Code num assistente que já sabe como você trabalha.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="5" href="#aula-5">
+        <div class="num">5</div>
+        <div><h3>Memória e segundo cérebro</h3><p>Ensine o Claude Code a lembrar do seu contexto entre conversas, em vez de recomeçar do zero toda vez.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="6" href="#aula-6">
+        <div class="num">6</div>
+        <div><h3>Subagentes</h3><p>Divida tarefas grandes entre vários ajudantes especializados de IA que trabalham em paralelo por você.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="7" href="#aula-7">
+        <div class="num">7</div>
+        <div><h3>Construção e publicação de projetos</h3><p>Saia de uma ideia solta e chegue a um projeto pronto, publicado e funcionando, do começo ao fim.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="8" href="#aula-8">
+        <div class="num">8</div>
+        <div><h3>Segundo cérebro avançado</h3><p>Aprofunde seu sistema de memória e contexto pra decisões mais consistentes com menos esforço repetido.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="9" href="#aula-9">
+        <div class="num">9</div>
+        <div><h3>Sistemas multiagentes e automações</h3><p>Coloque vários agentes de IA trabalhando juntos em automações que rodam sozinhas, sem você precisar estar lá.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+      <a class="au" data-aula="10" href="#aula-10">
+        <div class="num">10</div>
+        <div><h3>Otimização e encerramento</h3><p>Ajuste e revise o que você construiu, com um plano claro pra continuar sozinho depois do curso.</p><div class="prog"><i></i></div></div>
+        <div class="meta">abrir →</div>
+      </a>
+    </div>
+  </div></section>
+  <footer><div class="wrap">Claude Code para Pessoas Normais · INEMA.CLUB PRO</div></footer>
+</section>
+
+<!-- ===== MÓDULO 1 — Fundamentos e mentalidade =====
+     Wrapper correto pro roteamento (#aula-1 → #v-aula-1 via data-aula) e pra camada de
+     retenção (tudo que o motor injeta automaticamente busca o ancestral ".view[data-aula]").
+     data-tempo é OBRIGATÓRIO no contrato v5 mas o VALOR depende do conteúdo (contagem de
+     palavras) — troque "__TEMPO__" pelo valor real (ex.: "18min") ao finalizar o módulo. -->
+<section class="view" id="v-aula-1" data-aula="1" data-tempo="__TEMPO__">
+<!-- MODULO-01-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 2 — Primeiros passos com Claude Code ===== -->
+<section class="view" id="v-aula-2" data-aula="2" data-tempo="__TEMPO__">
+<!-- MODULO-02-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 3 — Estruturação de projetos ===== -->
+<section class="view" id="v-aula-3" data-aula="3" data-tempo="__TEMPO__">
+<!-- MODULO-03-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 4 — Construindo um sistema operacional de IA ===== -->
+<section class="view" id="v-aula-4" data-aula="4" data-tempo="__TEMPO__">
+<!-- MODULO-04-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 5 — Memória e segundo cérebro ===== -->
+<section class="view" id="v-aula-5" data-aula="5" data-tempo="__TEMPO__">
+<!-- MODULO-05-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 6 — Subagentes ===== -->
+<section class="view" id="v-aula-6" data-aula="6" data-tempo="__TEMPO__">
+<!-- MODULO-06-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 7 — Construção e publicação de projetos ===== -->
+<section class="view" id="v-aula-7" data-aula="7" data-tempo="__TEMPO__">
+<!-- MODULO-07-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 8 — Segundo cérebro avançado ===== -->
+<section class="view" id="v-aula-8" data-aula="8" data-tempo="__TEMPO__">
+<!-- MODULO-08-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 9 — Sistemas multiagentes e automações ===== -->
+<section class="view" id="v-aula-9" data-aula="9" data-tempo="__TEMPO__">
+<!-- MODULO-09-CONTEUDO-AQUI -->
+</section>
+
+<!-- ===== MÓDULO 10 — Otimização e encerramento =====
+     ATENÇÃO (patch de motor, ver assets/curso.js): id/data-aula usam "10" sem zero à
+     esquerda — é o único módulo que exercita o patch do roteador (regex aceita 1–2 dígitos)
+     e do sort numérico de KEYS. Não copiar o padrão "0" aqui. -->
+<section class="view" id="v-aula-10" data-aula="10" data-tempo="__TEMPO__">
+<!-- MODULO-10-CONTEUDO-AQUI -->
+</section>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>
