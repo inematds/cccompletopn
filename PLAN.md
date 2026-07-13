@@ -36,4 +36,5 @@ Formato de destino: `formato-curso-v5` (INEMA, dark editorial, página única co
 10. Otimização e encerramento — 5:27:13–5:58:20
 
 ## Status
-Última atualização: Fase 0.1 concluída. Próximo passo: Fase 1 (shell v5).
+Última atualização: Fase 0 e 0.1 concluídas e commitadas (`2301fd8`). Todos os 10 briefs em `content/briefs/`.
+Próximo passo: Fase 1 (shell v5) + Fase 2 (módulo 1 exemplar) — aguardando confirmação do usuário antes do fan-out dos módulos 2–10.
