@@ -38,5 +38,9 @@ Formato de destino: `formato-curso-v5` (INEMA, dark editorial, página única co
 ## Status
 - Fase 0 / 0.1: concluídas (`2301fd8`) — 10 briefs em `content/briefs/`.
 - Fase 1: concluída (`525f9e0`) — `fragments/00-shell.html` + `content/CONTRATO-FRAGMENTO.md` + `assets/aula.css` + `assets/curso.js` (patch de 2 linhas pra suportar 10 aulas, motor original suportava só 9).
-- Fase 2: concluída (`a424842`, `67327f3`) — `fragments/modulo-01.html`, exemplar dourado, verificado com agent-browser (zero erros de console, quiz/practice/rail interativos funcionando). 13/13 itens do manifesto de completude fechados.
-- **Aguardando confirmação do usuário para a Fase 3** (fan-out dos módulos 2–10, é a etapa mais cara em tokens).
+- Fase 2: concluída (`a424842`, `67327f3`) — `fragments/modulo-01.html`, exemplar dourado, verificado com agent-browser. 13/13 itens do manifesto.
+- Fase 3: concluída — módulos 2–10 gerados em 3 lotes paralelos (2-4, 5-7, 8-10), usando módulo 1 como template. 13/13 do manifesto em cada um.
+- Fase 4: concluída (`6060a3d`, `76473c3`) — `index.html` montado (272KB, 10/10 módulos) e verificado de ponta a ponta com agent-browser: trilha, hash routing bidirecional, interatividade nos 10 módulos, portão de completude (10/10 manifestos OK), assets sem 404.
+- Fase 5: publicado — `git push` feito para `inematds/cccompletopn` (GitHub Pages: https://inematds.github.io/cccompletopn/), e curso adicionado ao portal (inema.club).
+
+Curso "Claude Code para Pessoas Normais" — COMPLETO, 10/10 módulos, publicado.
